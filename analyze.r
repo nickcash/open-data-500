@@ -26,7 +26,7 @@ read.candidates <- function() {
     companyName = sapply(x, function(y){y$companyName}),
     companyID = sapply(x, function(y){y$companyID})
   )
-  merge(ids, candidates.csv <- od500.csv('500_Companies.csv'))
+  merge(ids, od500.csv('500_Companies.csv'), by.x = 'CompanyName', by.y = 'CompanyName')
 }
 
 # datasets <- read.datasets()
