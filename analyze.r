@@ -9,11 +9,6 @@ od500.csv <- function(filename){
 od500.json <- function(filename){
   fromJSON(file.path('download', filename))
 }
-  
-# candidates <- od500.csv('500_Companies.csv')
-# candidates.json <- od500.json('OD500_Companies.json')
-
-# preview <- od500.csv('Preview50_Companies.csv')
 
 read.datasets <- function() {
   datasets <- od500.json('OD500_Datasets.json')
@@ -25,4 +20,19 @@ read.datasets <- function() {
   datasets.df.2
 }
 
-datasets <- read.datasets()
+read.candidates <- function() {
+  x <- od500.json('OD500_Companies.json')
+  candidates.mat <- sapply(candidates, function(x) {
+    x$sector <- NULL
+    data.frame(x, stringsAsFactors = FALSE)}
+  )
+  candidates.df.1 <- data.frame(candidates.mat, stringsAsFactors = FALSE)
+  candidates.df.2 <- data.frame(lapply(candidates.df.1, unlist), stringsAsFactors = FALSE)
+  rownames(candidates.df.2) <- candidates.df.2$CompanyName
+  candidates.df.2
+}
+
+# candidates.csv <- od500.csv('500_Companies.csv')
+# datasets <- read.datasets()
+# preview <- od500.csv('Preview50_Companies.csv')
+candidates <- read.candidates()
