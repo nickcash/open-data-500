@@ -384,7 +384,30 @@ The other is the `usedByCompany` column, which references the `companyId`
 in `OD500_Companies.json`,
 
 ### preview (HTML)
-[`preview`](http://www.opendata500.com/preview/) is
+[`preview`](http://www.opendata500.com/preview/) is an HTML page
+containing a non-standard representation of a data table about companies.
+
+The companies are represented as a nodes with the following XPath.
+
+    //ul[@class="m-preview-list"]/li[@class="m-list-company"]
+
+I don't feel like writing out selectors for every field within each company
+node, but you can figure it out by looking at the code for the first company.
+
+```{r}
+preview.html[[1]]
+```
+
+I do want to point out the dataset nodes in particular. Each company node lists
+zero or more datasets, each with a URL and a title.
+
+```{r}
+df <- data.frame(
+  urls = xpathSApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/@href')
+  titles = xpathSApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/text()')  
+)
+kable(df)
+```
 
 ### candidates (HTML)
 [`candidates`](http://www.opendata500.com/candidates/)

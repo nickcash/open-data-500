@@ -1,4 +1,5 @@
 library(RJSONIO)
+library(XML)
 
 od500.csv <- function(filename){
   read.csv(
@@ -8,6 +9,10 @@ od500.csv <- function(filename){
 
 od500.json <- function(filename){
   fromJSON(file.path('download', filename))
+}
+
+od500.html <- function(filename) {
+  htmlParse(file.path('www.opendata500.com',filename,'index.html'))
 }
 
 read.datasets <- function() {
@@ -42,6 +47,7 @@ datasets.json <- read.datasets()
 preview.csv <- od500.csv('Preview50_Companies.csv')
 preview.json <- od500.json('OD500_Companies.json')
 candidates.csv <- od500.csv('500_Companies.csv')
+preview.html <- xpathSApply(od500.html('preview'), '//ul[@class="m-preview-list"]/li[@class="m-list-company"]')
 
 # candidates <- read.candidates()
 
