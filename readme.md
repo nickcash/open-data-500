@@ -106,54 +106,6 @@ begun to collect data but that they haven't done any sort of analysis on it.
 (This part isn't explained on the website, but a member of the Open Data 500
 Team explained this to me in person.)
 
-### Preview of 50 companies
-The Open Data 500 Team released an
-"[in-depth view](http://www.opendata500.com/preview/)" of "50 of the first
-to complete [the] survey". They also released a
-"[full list](http://www.opendata500.com/candidates/)" of
-"500 candidate companies". It took me a while to understand the difference
-between these companies.
-
-I'm pretty sure that these 50 are just some of the early submitters; they
-are have not been vetted or ranked in any way. But if that's all it is, why
-don't they put all of the companies in there?
-
-
-XXX
-
-I think that preview companies are simply all of the companies that have
-submitted the questionnaire; the non-preview companies are companies for
-which the the Open Data 500 team effectively filled out the questionnaire.
-
-xpathApply(candidates.html[[3]], 'contains(@class, "preview-company")')
-
-
-## 500-ness
-I'm still unsure as to what the "500" in the title means.
-
-### Fortune 500?
-Many people have suggested that the name is allusion to
-[Fortune 500](http://en.wikipedia.org/wiki/Fortune_500),
-but I don't think that's it.
-The Fortune 500 is list of "the top 500 U.S. closely held and public
-corporations as ranked by their gross revenue after adjustments". That is,
-it's the 500 biggest U.S. companies for a particular definition of "big".
-
-The Fortune 500 and the Open Data 500 are both about U.S. companies, but
-the similarities stop there; as explained on the
-"[About](http://www.opendata500.com/about/#about-results)" page,
-the Open Data 500 is explicitly not a ranking and not about company size.
-
-### Number of responses?
-The website says that the Open Data 500 is a list of 500 companies, so it
-might be that the "500" refers to the number of companies responding to the
-questionnaire, but this was a bit odd to me because they had chosen the name
-before they first sent out the questionnaire.
-
-One member of the Team told me that this was just a big number as a challenge
-to themselves. Another told me that they expected, based on Joel Gurin's
-network, that there were about 500 companies that would respond.
-
 ## Data files
 The Open Data 500 Team has released six main data files.
 
@@ -467,3 +419,49 @@ install it like so.
 
 If you don't want to use nprm, you can manually download
 [this script](https://raw.github.com/tlevine/open-data-500/master/main.r)
+
+## Distintion between the "Preview" and the "Candidates"
+The Open Data 500 Team released an
+"[in-depth view](http://www.opendata500.com/preview/)" of "50 of the first
+to complete [the] survey". They also released a
+"[full list](http://www.opendata500.com/candidates/)" of
+"500 candidate companies". What's the difference?
+
+### Are they just the companies that have submitted questionnaires?
+The preview companies are simply all of the companies that have
+submitted the questionnaire; the non-preview companies are companies for
+which the the Open Data 500 team effectively filled out the questionnaire.
+
+```{r}
+n.preview <- xpathApply(candidates.parent.html, 'count(div[contains(@class, "preview-company")])')
+n.survey <- xpathApply(candidates.parent.html, 'count(div[contains(@class, "survey-company")])')
+```
+
+### Which companies are in the preview?
+
+
+## 500-ness
+I'm still unsure as to what the "500" in the title means.
+
+### Fortune 500?
+Many people have suggested that the name is allusion to
+[Fortune 500](http://en.wikipedia.org/wiki/Fortune_500),
+but I don't think that's it.
+The Fortune 500 is list of "the top 500 U.S. closely held and public
+corporations as ranked by their gross revenue after adjustments". That is,
+it's the 500 biggest U.S. companies for a particular definition of "big".
+
+The Fortune 500 and the Open Data 500 are both about U.S. companies, but
+the similarities stop there; as explained on the
+"[About](http://www.opendata500.com/about/#about-results)" page,
+the Open Data 500 is explicitly not a ranking and not about company size.
+
+### Number of responses?
+The website says that the Open Data 500 is a list of 500 companies, so it
+might be that the "500" refers to the number of companies responding to the
+questionnaire, but this was a bit odd to me because they had chosen the name
+before they first sent out the questionnaire.
+
+One member of the Team told me that this was just a big number as a challenge
+to themselves. Another told me that they expected, based on Joel Gurin's
+network, that there were about 500 companies that would respond.
