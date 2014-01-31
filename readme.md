@@ -8,8 +8,15 @@ You may have read about it in.
 [Information Week](http://www.informationweek.com/government/open-government/open-government-data-companies-cash-in/d/d-id/1113143), or
 [Fedscoop](http://fedscoop.com/open-data-500-intersection-open-data-economy/)
 This is [data about open data](/open-data), so I naturally wanted it.
-In the present article, I explain a bit about how the study is being conducted
-and how the data are presented for download.
+
+The Open Data 500 Team doesn't provide a data dictionary, so I pieced one
+together for my own purposes. And I figured somebody else might want it for
+her own purposes, so here it is. The present article discusses
+
+* What the Open Data 500 is, in terms of research methods
+* How the released data files are structured
+* Clarification of some possible points of confusion
+* Recommendations as to how to work with the data
 
 ## Data collection methods
 The Open Data 500 looks a bit scary and complicated when you read its website
@@ -586,5 +593,8 @@ One member of the Team told me that this was just a big number as a challenge
 to themselves. Another told me that they expected, based on Joel Gurin's
 network, that there were about 500 companies that would respond.
 
-## Final thoughts
+## Key points
+This article details that I pieced together about the Open Data 500
+in order that I may work with it.
+
 HTML version is most up-to-date
