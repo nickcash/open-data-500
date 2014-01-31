@@ -1,5 +1,5 @@
 ---
-title: A statistical summary of the Open Data 500 data
+title: A data dictionary of the Open Data 500 data
 ---
 The [Open Data 500](http://www.opendata500.com/download/) is
 "the first comprehensive study of U.S. companies using open government data to develop new products and services."
@@ -165,13 +165,13 @@ each column corresponds to a question from the
 `r length(unique(preview.csv$CompanyName))` different companies are
 represented in this dataset.
 
-The column names in this spreadsheet correspond quite closely to the name
+The column names in this file correspond quite closely to the name
 attributes in the HTML form source code for the questionnaire.
 
 These columns describe the companies, and they are identical across different
 rows about the same company. 
 
-Code in the spreadsheet | Question from the questionnaire
+Code in the file        | Question from the questionnaire
 ----------------------- | -------------------------------
 `CompanyName`           | Name of your company
 `URL`                   | Company URL
@@ -213,13 +213,13 @@ The following columns come from the
 ["New Dataset"](http://www.opendata500.com/addData/52eb5431def7fa00029abc8f/)
 page of the questionnaire.
 
-Code in the spreadsheet | Question from the questionnaire
+Code in the file        | Question from the questionnaire
 ----------------------- | -------------------------------
 `datasetName`           | Name of Dataset
 `datasetURL`            | URL of Dataset
 `agencyOrDatasetSource` | Agency or Source
 
-The spreadsheet does not include the following columns from the "New Dataset" page.
+The file does not include the following columns from the "New Dataset" page.
 
 Code from the web form  | Question from the questionnaire
 ----------------------- | -------------------------------
@@ -236,7 +236,7 @@ Notes:
     multiple columns.
 2. "FTE" probably stands for "full-time equivalent employees".
 3. The questionnaire has different categories from the levels reported in
-    this spreadsheet.
+    this file.
 4. This cell contains a comma-and-space (`, `) delimited list of items,
     and I haven't picked apart the lists to find all of the possible values
     in the list.
@@ -245,6 +245,24 @@ Notes:
 
 ### 500_Companies.csv
 [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
+is a CSV file with
+`r ncol(candidates.csv) columns and `r nrow(candidates.csv)` rows.
+Each row corresponds to a unique company, and
+each column corresponds to a question from the
+[questionnaire](http://www.opendata500.com/submitCompany/).
+
+Code in the file        | Question from the questionnaire
+----------------------- | -------------------------------
+`CompanyName`           | Name of your company
+`URL`                   | Company URL
+`city`                  | In which city is this company located?
+`STATE`                 | State
+`abbrev`                | State
+`zipCode`               | Zip Code
+`companyCategory`       | What category best describes your company? (`r pretty.levels(preview.csv$companyCategory)`)
+`descriptionShort`      | As a summary, please provide a one sentence description of your company.
+
+This file provides no data about datasets used by the companies.
 
 ### OD500_Companies.json
 [`OD500_Companies.json`](http://www.opendata500.com/download/OD500_Companies.json)
