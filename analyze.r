@@ -48,5 +48,4 @@ candidates.csv <- od500.csv('500_Companies.csv')
 # Identifiers are unique:
 # unique(Reduce(function(a,b){c(a,b$datasets)}, preview.json, c()))
 
-
 # knit(

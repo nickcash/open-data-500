@@ -316,16 +316,17 @@ Code from the web form  | Question from the questionnaire
 `conferenceRec`         | What conferences or events do you think would be helpful to us in surveying the field of open data companies? 
 
 In addition to the 20 columns I describe above, there are two columns for
-identificatiers. One is the `companyId` column, which is the identifier for
-the particular company. Within the questionnaire, this shows up inside the
-URL for the 
+identificatiers. One is the `companyId` column, which is the unique
+identifier for the particular company. Within the questionnaire, this shows up
+inside the URL for the
 ["New Dataset"](http://www.opendata500.com/addData/52eb5431def7fa00029abc8f/)
 page.
 
     http://www.opendata500.com/addData/$companyId/
 
 The other is the `datasets` column, which lists identification codes
-for datasets (like  `r preview.json[[1]]$datasets[1]`).
+for datasets (like  `r preview.json[[1]]$datasets[1]`) and references the
+`datasetID` column in `OD500_Datasets.json`.
 
 You can think of this file as a JSON version of`Preview50_Companies.csv`.
 
@@ -341,8 +342,36 @@ Notes:
 4. This is from the "Personal Information" section, which presumably
     describes the person who is filling out the questionnaire.
 
-### OD500_Companies.json
+### OD500_Datasets.json
 [`OD500_Datasets.json`](http://www.opendata500.com/download/OD500_Datasets.json)
+is a JSON file with an array of associative arrays (that is, a list of mappings).
+It has `r length(preview.json)` rows (associative ararys) and 
+`r unique(sapply(preview.json, length))` columns (items per associative array).
+Each row corresponds to a dataset. Three of the columns correspond directly to
+questionnaire questions.
+
+The following columns come from the
+["New Dataset"](http://www.opendata500.com/addData/52eb5431def7fa00029abc8f/)
+page of the questionnaire.
+
+Code in the file        | Question from the questionnaire
+----------------------- | -------------------------------
+`datasetName`           | Name of Dataset
+`datasetURL`            | URL of Dataset
+`source`                | Agency or Source
+
+The file does not include the following columns from the "New Dataset" page.
+
+Code from the web form  | Question from the questionnaire
+----------------------- | -------------------------------
+`typeOfDataset`         | Type of Dataset (Federal Open Data, State Open Data, City/Local Open Data, Other)
+`rating`                | On a scale of 1 to 4, how would you rate the usefulness of this dataset? (1- poor, 4- excellent) Your answer can reflect your experience with data quality, format of the data, or other factors.
+`reason`                | Why did you give it this rating?
+
+The file also contains two identifier columns. identificatiers.
+One is the `datasetID` column, which serves as a primary key for this table.
+The other is the `usedByCompany` column, which references the `companyId`
+in `OD500_Companies.json`,
 
 ### Loading into R
 
