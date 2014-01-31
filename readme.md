@@ -211,9 +211,9 @@ The spreadsheet does not include the following columns from the "New Dataset" pa
 
 Code from the web form  | Question from the questionnaire
 ----------------------- | -------------------------------
-                        | Type of Dataset (Federal Open Data, State Open Data, City/Local Open Data, Other)
-                        | On a scale of 1 to 4, how would you rate the usefulness of this dataset? (1- poor, 4- excellent) Your answer can reflect your experience with data quality, format of the data, or other factors.
-                        | Why did you give it this rating?
+`typeOfDataset`         | Type of Dataset (Federal Open Data, State Open Data, City/Local Open Data, Other)
+`rating`                | On a scale of 1 to 4, how would you rate the usefulness of this dataset? (1- poor, 4- excellent) Your answer can reflect your experience with data quality, format of the data, or other factors.
+`reason`                | Why did you give it this rating?
 
 Finally, there is also a `DATASETS` column, which is the number of datasets
 submitted for the particular the company.
