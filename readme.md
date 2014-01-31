@@ -165,67 +165,69 @@ each column corresponds to a question from the
 `r length(unique(preview.csv$CompanyName))` different companies are
 represented in this dataset.
 
+The column names in this spreadsheet correspond quite closely to the name
+attributes in the HTML form source code for the questionnaire.
+
 These columns describe the companies, and they are identical across different
 rows about the same company. 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+Code in the spreadsheet | Question from the questionnaire
+----------------------- | -------------------------------
+`CompanyName`           | Name of your company
+`URL`                   | Company URL
+`city`                  | In which city is this company located?
+`STATE`                 | State [1]
+`abbrev`                | State [1]
+`zipCode`               | Zip Code
+`ceoFirstName`          | First Name of CEO
+`ceoLastName`           | Last Name of CEO
+`companyPreviousName`   | ???
+`yearFounded`           | Founding Year
+`FTE`                   | Number of FTE's [2]
+`companyType`           | Type of Company (`r pretty.levels(preview.csv$companyType)`) [3]
+`companyCategory`       | What category best describes your company? (`r pretty.levels(preview.csv$companyCategory)`) [1]
+`companyFunction`       | Which best describes the function of your company? (`r pretty.levels(preview.csv$companyFunction)`) [3]
+`sectors`               | What category best describes your company? (`r pretty.levels(preview.csv$sectors)`) [1,3]
+`revenueSource`         | Which of the following are significant sources of revenue for your company? [4]
+`descriptionLong`       | Please give us a short public statement describing your company’s mission and work. You can take this material from your website or other publications if you choose to.
+`descriptionShort`      | As a summary, please provide a one sentence description of your company.
+`socialImpact`          | Besides revenue generation, how do you measure the impact your company has for society and the public good? 
+`financialInfo`         | Please include any financial or operational information that will help us understand your company. We are interested in specific information like past and projected annual revenues, total outside investment dollars to date, and significant investors or partners. 
+`criticalDataTypes`     | Which of the following are critical sources of data for your company? By “critical,” we mean that your company would have to shut down a line of business, shut down completely, or replace the data in some way if the data were no longer available.
+
+It does not include the following questions from that first page of the questionnaire.
+
+The following columns come from the
+["New Dataset"](http://www.opendata500.com/addData/52eb5431def7fa00029abc8f/)
+page of the questionnaire.
 
 Code in the spreadsheet | Question from the questionnaire
 ----------------------- | -------------------------------
-`CompanyName`           |  Name of your company
-`URL`                   |  Company URL
-`city`                  |  In which city is this company located?
-`STATE`                 |  State [1]
-`abbrev`                |  State [1]
-`zipCode`               |  Zip Code
-`ceoFirstName`          |  First Name of CEO
-`ceoLastName`           |  Last Name of CEO
-`companyPreviousName`   |  
-`yearFounded`           |  Founding Year
-`FTE`                   |  Number of FTE's [2]
-`companyType`           |  Type of Company (`r paste(sort(unique(preview.csv$companyType), collapse = ', '))`) [3]
-`companyCategory`       |  Which best describes the function of your company? 
-`companyFunction`       |  
-`sectors`               |  
-`revenueSource`         |  
-`descriptionLong`       |  
-`descriptionShort`      |  
-`socialImpact`          |  
-`financialInfo`         |  
-`criticalDataTypes`     |  
+`datasetName`           | Name of Dataset
+`datasetURL`            | URL of Dataset
+`agencyOrDatasetSource` | Agency or Source
 
-* `datasetName`
-* `datasetURL`
-* `agencyOrDatasetSource`
-* `DATASETS`
+The spreadsheet does not include the following columns from the "New Dataset" page.
 
+Code from the web form  | Question from the questionnaire
+----------------------- | -------------------------------
+                        | Type of Dataset (Federal Open Data, State Open Data, City/Local Open Data, Other)
+                        | On a scale of 1 to 4, how would you rate the usefulness of this dataset? (1- poor, 4- excellent) Your answer can reflect your experience with data quality, format of the data, or other factors.
+                        | Why did you give it this rating?
+
+Finally, there is also a `DATASETS` column, which is the number of datasets
+submitted for the particular the company.
 
 Notes:
 
-1. The state is asked in one question, where a drop-down menu of the full
-  names of states are provided. The spreadsheet provides two columns for this
-  one value: one for the full name, and the other for the two-letter
-  abbreviation. These two columns seem to match, (For example, Climate
-  Corporation has a `STATE` of
-  `r subset(preview.csv, CompanyName == 'Climate Corporation')[1,'STATE']`
-  and an `abbrev` of
-  `r subset(preview.csv, CompanyName == 'Climate Corporation')[1,'abbrev']`.)
-  but I didn't really check.
+1. In some cases, answers to one question are presented redundantly across
+    multiple columns.
 2. "FTE" probably stands for "full-time equivalent employees".
 3. The questionnaire has different categories from the levels reported in
     this spreadsheet.
-
+4. This cell contains a comma-and-space (`, `) delimited list of items,
+    and I haven't picked apart the lists to find all of the possible values
+    in the list.
 
 ### 500_Companies.csv
 [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
