@@ -197,6 +197,18 @@ Code in the spreadsheet | Question from the questionnaire
 
 It does not include the following questions from that first page of the questionnaire.
 
+Code from the web form  | Question from the questionnaire
+----------------------- | -------------------------------
+`firstName`             | First Name [5]
+`lastName`              | Last Name
+`title`                 | Title
+`email`                 | Email
+`phone`                 | Phone
+`contacted`             | Please check here if you would be willing to be contacted for further information about your company.
+`datasetWishList`       | What datasets (if any) are not currently available that would be useful for your company to have as government open data? 
+`companyRec`            | What other companies, either in your sector or other sectors, would you recommend we contact regarding their use of government open data? 
+`conferenceRec`         | What conferences or events do you think would be helpful to us in surveying the field of open data companies? 
+
 The following columns come from the
 ["New Dataset"](http://www.opendata500.com/addData/52eb5431def7fa00029abc8f/)
 page of the questionnaire.
@@ -228,6 +240,8 @@ Notes:
 4. This cell contains a comma-and-space (`, `) delimited list of items,
     and I haven't picked apart the lists to find all of the possible values
     in the list.
+5. This is from the "Personal Information" section, which presumably
+    describes the person who is filling out the questionnaire.
 
 ### 500_Companies.csv
 [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
