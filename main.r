@@ -1,5 +1,6 @@
 library(RJSONIO)
 library(XML)
+library(knitr)
 
 od500.csv <- function(filename){
   read.csv(

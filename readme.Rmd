@@ -386,7 +386,7 @@ zero or more datasets, each with a URL and a title. Here is how you query them.
 
 ```{r}
 df <- data.frame(
-  urls = xpathApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/@href')
+  urls = xpathApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/@href'),
   titles = xpathApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/text()')  
 )
 kable(df)
