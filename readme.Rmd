@@ -661,7 +661,8 @@ component of the study has yet to begin. But the data are already being
 released, so you can start analyzing the data before the Open Data 500
 Team does!
 
-**The different data files present conflicting versions of the data**.
+**The different data files present conflicting versions of the data**,
+and I haven't figured out how to resolve this.
 The different data files do largely agree with each other,
 so they should be okay for prototyping your analyses, but you should contact the
 Open Data 500 Team for clarification if this starts to matter.
