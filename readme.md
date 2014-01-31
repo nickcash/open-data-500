@@ -230,8 +230,7 @@ Code from the web form  | Question from the questionnaire
 Finally, there is also a `DATASETS` column, which is the number of datasets
 submitted for the particular the company.
 
-The companies listed in this file are the same as the companies listed in
-`OD500_Companies.json`.
+You can think of this file as a CSV version of `OD500_Companies.json`.
 
 <!-- all(unique(sort(preview.csv$CompanyName)) == sort(sapply(candidates.json, function(x){x$companyName}))) -->
 
@@ -289,11 +288,11 @@ Code in the file        | Question from the questionnaire
 `previousName`          | ???
 `yearFounded`           | Founding Year
 `fte`                   | Number of FTE's [2]
-`companyType`           | Type of Company (`r pretty.levels(preview.csv$companyType)`) [3]
+`companyType`           | Type of Company (`r pretty.levels(preview.json, 'companyType')`) [3]
 `companyCategory`       | What category best describes your company? (`r pretty.levels(preview.csv$companyCategory)`) [1]
 `companyFunction`       | Which best describes the function of your company? (`r pretty.levels(preview.csv$companyFunction)`) [3]
 `sector`                | What category best describes your company? (`r pretty.levels(preview.csv$sectors)`) [1,3]
-`revenueSource`         | Which of the following are significant sources of revenue for your company? [4]
+`revenueSource`         | Which of the following are significant sources of revenue for your company? 
 `descriptionLong`       | Please give us a short public statement describing your company’s mission and work. You can take this material from your website or other publications if you choose to.
 `descriptionShort`      | As a summary, please provide a one sentence description of your company.
 `socialImpact`          | Besides revenue generation, how do you measure the impact your company has for society and the public good? 
@@ -302,10 +301,45 @@ Code in the file        | Question from the questionnaire
 
 <!-- subset(preview.csv, CompanyName == 'BillGuard')[1,'financialInfo'] == preview.json[[3]]$socialInfo -->
 
-The companies listed in this file are the same as the companies listed in
-`Preview50_Companies.csv`.
+It does not include the following questions from that first page of the questionnaire.
+
+Code from the web form  | Question from the questionnaire
+----------------------- | -------------------------------
+`firstName`             | First Name [4]
+`lastName`              | Last Name
+`title`                 | Title
+`email`                 | Email
+`phone`                 | Phone
+`contacted`             | Please check here if you would be willing to be contacted for further information about your company.
+`datasetWishList`       | What datasets (if any) are not currently available that would be useful for your company to have as government open data? 
+`companyRec`            | What other companies, either in your sector or other sectors, would you recommend we contact regarding their use of government open data? 
+`conferenceRec`         | What conferences or events do you think would be helpful to us in surveying the field of open data companies? 
+
+In addition to the 20 columns I describe above, there are two columns for
+identificatiers. One is the `companyId` column, which is the identifier for
+the particular company. Within the questionnaire, this shows up inside the
+URL for the 
+["New Dataset"](http://www.opendata500.com/addData/52eb5431def7fa00029abc8f/)
+page.
+
+    http://www.opendata500.com/addData/$companyId/
+
+The other is the `datasets` column, which lists identification codes
+for datasets (like  `r preview.json[[1]]$datasets[1]`).
+
+You can think of this file as a JSON version of`Preview50_Companies.csv`.
 
 <!-- all(unique(sort(preview.csv$CompanyName)) == sort(sapply(candidates.json, function(x){x$companyName}))) -->
+
+Notes:
+
+1. In some cases, answers to one question are presented redundantly across
+    multiple columns.
+2. "FTE" probably stands for "full-time equivalent employees".
+3. The questionnaire has different categories from the levels reported in
+    this file.
+4. This is from the "Personal Information" section, which presumably
+    describes the person who is filling out the questionnaire.
 
 ### OD500_Companies.json
 [`OD500_Datasets.json`](http://www.opendata500.com/download/OD500_Datasets.json)

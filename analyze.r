@@ -30,8 +30,12 @@ read.candidates <- function() {
   merge(ids, od500.csv('500_Companies.csv'), by.x = 'CompanyName', by.y = 'CompanyName')
 }
 
-pretty.levels <- function(vec) {
-  paste(unique(vec), collapse = ', ')
+pretty.levels <- function(x) { UseMethod('pretty.levels')}
+pretty.levels.character <- function(vec) {
+  paste(sort(unique(vec)), collapse = ', ')
+}
+pretty.levels.list <- function(thelist, thefield) {
+  paste(sort(unique(c(sapply(thelist, function(x){x[[thefield]]})))), collapse = ', ')
 }
 
 datasets.json <- read.datasets()
