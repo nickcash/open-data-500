@@ -7,4 +7,4 @@ for file in index.html Preview50_Companies.csv 500_Companies.csv OD500_Companies
   fi
 done
 
-# As of January 11, the files haven't changed since I first downloaded them.
+# As of January 31, the files haven't changed since I first downloaded them.
