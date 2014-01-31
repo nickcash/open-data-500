@@ -30,9 +30,15 @@ read.candidates <- function() {
   merge(ids, od500.csv('500_Companies.csv'), by.x = 'CompanyName', by.y = 'CompanyName')
 }
 
+pretty.levels <- function(vec) {
+  paste(unique(vec), collapse = ', ')
+}
+
 datasets.json <- read.datasets()
 preview.csv <- od500.csv('Preview50_Companies.csv')
 candidates.csv <- od500.csv('500_Companies.csv')
 candidates.json <- od500.json('OD500_Companies.json')
 
 # candidates <- read.candidates()
+
+# knit(
