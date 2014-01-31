@@ -326,7 +326,7 @@ The other is the `datasets` column, which lists identification codes
 for datasets (like  `r preview.json[[1]]$datasets[1]`) and references the
 `datasetID` column in `OD500_Datasets.json`.
 
-You can think of this file as a JSON version of`Preview50_Companies.csv`.
+You can think of this file as a JSON version of `Preview50_Companies.csv`.
 
 <!-- all(unique(sort(preview.csv$CompanyName)) == sort(sapply(candidates.json, function(x){x$companyName}))) -->
 
