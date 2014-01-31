@@ -453,4 +453,17 @@ XPath within the company node | Meaning
 a/@href                       | Link to a page on the Open Data 500 site with more information from the questionnaire about the company
 
 ## Loading into R
+You can load the data into R like so.
 
+    system('npm install r-open-data-500')
+    library(nprm)
+    open.data.500 <- nprm.require('open-data-500')
+
+If you haven't installed [nprm](https://github.com/tlevine/nprm),
+install it like so.
+
+    library(devtools)
+    install_github('nprm','tlevine')
+
+If you don't want to use nprm, you can manually download
+[this script](https://raw.github.com/tlevine/open-data-500/master/main.r)
