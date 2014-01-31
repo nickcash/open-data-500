@@ -46,7 +46,7 @@ They are "[vetting](http://www.opendata500.com/about/#about-vetted)" companies,
 but this sounds like just a conversation with the submitters to check that they
 understood the questionnaire properly.
 
-### Sampling strategy
+### Comprehensive call sampling strategy
 The Open Data 500 uses a sampling strategy that they term "comprehensive call".
 That sounds really complicated, but it's actually quite simple.
 
@@ -69,10 +69,24 @@ The Open Data 500 Team distributed links to the questionnaire in
 * Outreach at "Data Transparency 2013" conference (September 2013, Washington, DC)
 * Blog posts on TheGovLab.org and OpenDataNow.com
 
-And that's it!
+That's all that "comprehensive call" means!
 
 I think their use of comprehensive call is why the Open Data 500 Team considers
 the Open Data 500 to be a comprehensive study.
+
+### Further data collection
+Open Data 500 Team solicited responses to
+[this questionnaire](http://www.opendata500.com/submitCompany/) through
+[comprehensive call](#comprehensive-call-sampling-strategy),
+ but they also looked for companies
+that did not respond to the questionnaire; the Team effectively filled out
+parts of this questionnaire for companies who did not respond.
+
+### Sample size
+Based on the `preview` file (discussed [below](#preview-html)), I think
+that they got `r sum(candidates.html$survey.company)` responses to their
+questionnaire and found `r sum(!candidates.html$survey.company)` additional
+companies that were not in the comprehensive call sample.
 
 ### Case study
 The Open Data 500 has released data in the
@@ -83,13 +97,6 @@ These data are the straightforward questionnaire results (with one [quirk](#ques
 for the companies that met their eligibility criteria.
 Thus, the Open Data 500 is a [case study](http://en.wikipedia.org/wiki/Case_study)
 of companies that meet the Open Data 500 eligibility criteria.
-
-### Questionnaire and non-questionnaire responses
-Open Data 500 Team solicited responses to
-[this questionnaire](http://www.opendata500.com/submitCompany/) through
-[comprehensive call](#sampling strategy), but they also looked for companies
-that did not respond to the questionnaire; the Team effectively filled out
-parts of this questionnaire for companies who did not respond.
 
 ## Just a questionnaire
 This is the main thing that confused me about the study, so I'm going to
@@ -593,8 +600,8 @@ One member of the Team told me that this was just a big number as a challenge
 to themselves. Another told me that they expected, based on Joel Gurin's
 network, that there were about 500 companies that would respond.
 
-## Key points
-This article details that I pieced together about the Open Data 500
-in order that I may work with it.
+## Key points and recommendations
+This article a lot of details of the Open Data 500 data, but I'm going to
+try to summarize the broader points.
 
 HTML version is most up-to-date
