@@ -1,5 +1,7 @@
 ---
 title: A data dictionary of the Open Data 500 data
+tags: ['open-data']
+created_at: 2014-01-31
 kind: article
 ---
 The [Open Data 500](http://www.opendata500.com/download/) is
@@ -58,17 +60,17 @@ of companies that meet the Open Data 500 eligibility criteria.
 The Open Data 500 Team distributed links to the questionnaire in
 [these places](http://www.opendata500.com/about/#about-identify).
 
-* Recommendations from government and non-governmental organizations studying this field.
-* List of companies using datasets from Data.gov, the federal hub for government data
-* Online Open Data Userbase created by Socrata
-* Directory of open data companies developed by Deloitte
-* Mass email to 3100 people in the GovLab network
-* Mass email to 2200 people on contact list for OpenDataNow.com, website of Open Data 500 project director Joel Gurin
-* Companies identified in research for upcoming book, Open Data Now
-* Response to coverage of the Open Data 500 in Information Week and FedScoop
-* Outreach through Twitter
-* Outreach at "Data Transparency 2013" conference (September 2013, Washington, DC)
-* Blog posts on TheGovLab.org and OpenDataNow.com
+> * Recommendations from government and non-governmental organizations studying this field.
+> * List of companies using datasets from Data.gov, the federal hub for government data
+> * Online Open Data Userbase created by Socrata
+> * Directory of open data companies developed by Deloitte
+> * Mass email to 3100 people in the GovLab network
+> * Mass email to 2200 people on contact list for OpenDataNow.com, website of Open Data 500 project director Joel Gurin
+> * Companies identified in research for upcoming book, Open Data Now
+> * Response to coverage of the Open Data 500 in Information Week and FedScoop
+> * Outreach through Twitter
+> * Outreach at "Data Transparency 2013" conference (September 2013, Washington, DC)
+> * Blog posts on TheGovLab.org and OpenDataNow.com
 
 That's all that "comprehensive call" means!
 
