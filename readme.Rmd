@@ -1,8 +1,12 @@
 ---
 title: A data dictionary of the Open Data 500 data
+description: I like writing documentation
+tweet_text: This morning I wrote a data dictionary about the Open Data 500 data.
 tags: ['open-data']
 created_at: 2014-01-31
 kind: article
+twitter_image: figure/preview_v_candidates.png
+facebook_image: figure/preview_v_candidates.png
 ---
 The [Open Data 500](http://www.opendata500.com/download/) is
 "the first comprehensive study of U.S. companies using open government data to develop new products and services."
