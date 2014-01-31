@@ -34,9 +34,10 @@ They are [vetting](http://www.opendata500.com/about/#about-vetted) companies,
 but this sounds like just a conversation with the submitters to check that they
 understood the questionnaire properly.
 
-### Sampling strategy and comprehensiveness
-The questionnaire results can be considered a convenience sample of companies
-that meet the Open Data 500 eligibility criteria.
+### Sampling strategy
+The questionnaire results can be considered a convenience sample
+[convenience sample](http://en.wikipedia.org/wiki/Accidental_sampling)
+of companies that meet the Open Data 500 eligibility criteria.
 
 The Open Data 500 Team distributed links to the questionnaire in
 [these places](http://www.opendata500.com/about/#about-identify).
@@ -53,33 +54,26 @@ The Open Data 500 Team distributed links to the questionnaire in
 * Outreach at "Data Transparency 2013" conference (September 2013, Washington, DC)
 * Blog posts on TheGovLab.org and OpenDataNow.com
 
-They term this sampling strategy a "comprehensive call", and I think their use
-of a comprehensive call is why the Open Data 500 Team considers the Open Data 500
+They term this sampling strategy "comprehensive call", and I think their use
+of comprehensive call is why the Open Data 500 Team considers the Open Data 500
 to be a comprehensive study.
 
 ### Case study
-The Open Data 500 has released data for
+The Open Data 500 has released data in the
 "[download]()" and
-as a "[full list]()".
+"[full list]()" sections.
 These data are the straightforward questionnaire results (with one [quirk](#questionnaire))
 for the companies that met their eligibility criteria.
+Thus, the Open Data 500 is a [case study](http://en.wikipedia.org/wiki/Case_study)
+of companies that meet the Open Data 500 eligibility criteria.
 
-They can be seen as a
-[convenience sample](http://en.wikipedia.org/wiki/Accidental_sampling)
-
-### Case Study
-
-[case study](http://en.wikipedia.org/wiki/Case_study).
-
-### Questionnaire
+### Questionnaire and non-questionnaire responses
 The questionnaire for the Open Data 500 is
 [here](http://www.opendata500.com/submitCompany/).
-Open Data 500 Team solicited responses to this questionnaire from a
-[bunch of people](http://www.opendata500.com/about/#about-identify).
-
-The Open Data 500 Team also identified companies who did not respond to these
-solicitations; the Team effectively filled out this questionnaire for companies
-who did not respond.
+Open Data 500 Team solicited responses to this questionnaire through
+[comprehensive call](#sampling strategy), but they also looked for companies
+that did not respond to the questionnaire; the Team effectively filled out
+parts of this questionnaire for companies who did not respond.
 
 ### Further analyses
 
