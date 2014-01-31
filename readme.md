@@ -151,3 +151,11 @@ to themselves. Another told me that they expected, based on Joel Gurin's
 network, that there were about 500 companies that would respond.
 
 ## Accessing the data
+The data are released in six different files.
+
+* [`Preview50_Companies.csv`](http://www.opendata500.com/download/Preview50_Companies.csv)
+* [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
+* [`OD500_Companies.json`](http://www.opendata500.com/download/OD500_Companies.json)
+* [`OD500_Datasets.json`](http://www.opendata500.com/download/OD500_Datasets.json)
+* [`preview`](http://www.opendata500.com/preview/) (HTML)
+* [`candidates`](http://www.opendata500.com/candidates/) (HTML)
