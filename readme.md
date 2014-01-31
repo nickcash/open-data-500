@@ -1,5 +1,5 @@
 ---
-title: Understanding the Open Data 500 data
+title: A statistical summary of the Open Data 500 data
 ---
 The [Open Data 500](http://www.opendata500.com/download/) is
 "the first comprehensive study of U.S. companies using open government data to develop new products and services."
@@ -157,8 +157,12 @@ document their structure anyway.
 
 ### Preview50_Companies.csv
 [`Preview50_Companies.csv`](http://www.opendata500.com/download/Preview50_Companies.csv)
-is a CSV file with these columns.
- 
+is a denormalized CSV file with
+`r ncol(preview.csv) columns and `r nrow(preview.csv)` rows.
+Each row corresponds to a dataset within a company, and
+`r length(unique(preview.csv$CompanyName))` different companies are
+represented in this dataset
+
 * `CompanyName`
 * `URL`
 * `city`
@@ -184,6 +188,8 @@ is a CSV file with these columns.
 * `datasetURL`
 * `agencyOrDatasetSource`
 * `DATASETS`
+
+
 
 ### 500_Companies.csv
 [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
