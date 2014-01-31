@@ -463,6 +463,12 @@ this means that all of the survey companies are in the preview set and
 that none of the non-survey companies are in the preview set.
 
 ### Which companies are in the preview?
+I still haven't resolved which companies are considered to be the preview
+companies.
+
+
+
+
 
 
 ## 500-ness
