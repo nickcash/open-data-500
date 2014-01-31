@@ -289,9 +289,9 @@ Code in the file        | Question from the questionnaire
 `yearFounded`           | Founding Year
 `fte`                   | Number of FTE's [2]
 `companyType`           | Type of Company (`r pretty.levels(preview.json, 'companyType')`) [3]
-`companyCategory`       | What category best describes your company? (`r pretty.levels(preview.csv$companyCategory)`) [1]
-`companyFunction`       | Which best describes the function of your company? (`r pretty.levels(preview.csv$companyFunction)`) [3]
-`sector`                | What category best describes your company? (`r pretty.levels(preview.csv$sectors)`) [1,3]
+`companyCategory`       | What category best describes your company? (`r pretty.levels(preview.json, 'companyCategory')`) [1]
+`companyFunction`       | Which best describes the function of your company? (`r pretty.levels(preview.json, 'companyFunction')`) [3]
+`sector`                | What category best describes your company? (`r pretty.levels(preview.json, 'sectors')`) [1,3]
 `revenueSource`         | Which of the following are significant sources of revenue for your company? 
 `descriptionLong`       | Please give us a short public statement describing your company’s mission and work. You can take this material from your website or other publications if you choose to.
 `descriptionShort`      | As a summary, please provide a one sentence description of your company.
