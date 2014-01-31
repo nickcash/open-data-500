@@ -167,7 +167,7 @@ document their structure anyway.
 ### OD500_Companies.json
 [`OD500_Datasets.json`](http://www.opendata500.com/download/OD500_Datasets.json)
 
-
+### Loading into R
 
 ## Accessing data across HTML web pages
 I recommend accessing the data from the HTML files "preview" and "Full list" sections.

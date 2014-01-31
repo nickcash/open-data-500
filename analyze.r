@@ -26,9 +26,13 @@ read.candidates <- function() {
     companyName = sapply(x, function(y){y$companyName}),
     companyID = sapply(x, function(y){y$companyID})
   )
+  # This doesn't work because the unique identifier column is not unique.
   merge(ids, od500.csv('500_Companies.csv'), by.x = 'CompanyName', by.y = 'CompanyName')
 }
 
-# datasets <- read.datasets()
-# preview <- od500.csv('Preview50_Companies.csv')
-candidates <- read.candidates()
+datasets.json <- read.datasets()
+preview.csv <- od500.csv('Preview50_Companies.csv')
+candidates.csv <- od500.csv('500_Companies.csv')
+candidates.json <- od500.json('OD500_Companies.json')
+
+# candidates <- read.candidates()
