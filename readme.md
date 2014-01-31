@@ -79,18 +79,25 @@ Open Data 500 Team solicited responses to
 [this questionnaire](http://www.opendata500.com/submitCompany/) through
 [comprehensive call](#comprehensive-call-sampling-strategy),
  but they also looked for companies
-that did not respond to the questionnaire; the Team effectively filled out
-parts of this questionnaire for companies who did not respond.
+that did not respond to the questionnaire.
+
+I couldn't find any documentation about the process they went through for
+collecting data without the questionnaire. After talking to one of the Team
+members, I think that the Team effectively filled out parts of this
+ questionnaire for companies who did not respond. Still, I do not know how they
+chose which companies they would do this for.
 
 ### Sample size
-Based on the `preview` file (discussed [below](#preview-html)), I think
-that they got `r sum(candidates.html$survey.company)` responses to their
-questionnaire and found `r sum(!candidates.html$survey.company)` additional
-companies that were not in the comprehensive call sample.
+It is unclear to me how many companies responded to the questionnaire, but I
+think it is either `r length(preview.json)` companies or
+`r sum(candidates.html$survey.company)` companies.
+I explain this more in the
+[Which companies are in the preview?](#which-companies-are-in-the-preview?)
+section.
 
 ### Case study
 The Open Data 500 has released data in the
-"[download]()",
+"[download](http://www.opendata500.com/download)",
 "[preview](http://www.opendata500.com/preview/)",
 "[full list](http://www.opendata500.com/candidates/)" sections.
 These data are the straightforward questionnaire results (with one [quirk](#questionnaire-and-non-questionnaire-responses))
