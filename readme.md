@@ -469,6 +469,7 @@ there was a mistake in the HTML version.
 I still haven't resolved which companies are considered to be the preview
 companies.
 
+#### `r length(preview.companies.csv)` companies?
 Three of the files (`Preview50_Companies.csv`, `OD500_Companies.json`,
 and `preview`) agree as to which companies are in the preview.
 
@@ -487,6 +488,7 @@ According to those three files, the following
 preview.companies.csv
 ```
 
+#### `r length(preview.companies.candidates.html)` companies?
 The remaining file, `candidates`, agrees that the above companies are in
 the preview,
 
@@ -499,6 +501,27 @@ but it includes
 additional companies, for a total of
 `r length(preview.companies.candidates.html)`.
 
+#### 50 companies?
+There is even a third conflicting concept of the preview!
+Several articles indicate that there are 50 companies in the preview,
+not `r length(preview.companies.csv)`
+nor `r length(preview.companies.candidates.html)`.
+
+The introduction to the [`preview`](http://www.opendata500.com/preview/) page says
+"[t]hese companies are 50 of the first to complete our survey for the Open Data 500".
+The [download](http://www.opendata500.com/download/) page calls the preview
+files "List[s] of 50". The [home page](http://www.opendata500.com/) says that the
+preview is the "list of the first 50 companies that have filled out our survey".
+
+The various press coverage also counts the preview companies at 50.
+The article in
+[Forbes](http://www.forbes.com/sites/bethsimonenoveck/2014/01/08/from-faith-based-to-evidence-based-the-open-data-500-and-understanding-how-open-data-helps-the-american-economy/)
+says "We've also posted in-depth profiles of 50 of them".
+The [Information Week](http://www.informationweek.com/government/open-government/open-government-data-companies-cash-in/d/d-id/1113143) article
+says that "[i]n addition to publishing a list of 500 open data companies,
+GovLab also published profiles of 50 companies creating value from open government data."
+And the [Fedscoop](http://fedscoop.com/open-data-500-intersection-open-data-economy/) article
+talks about "50 companies profiled for early release".
 
 ## 500-ness
 I'm still unsure as to what the "500" in the title means.
