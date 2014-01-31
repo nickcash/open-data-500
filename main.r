@@ -72,16 +72,11 @@ candidates.html <- data.frame(
   survey.company = candidates.html.field(survey.company.xpath),
   href = candidates.html.field('a/@href')
 )
-# xpathApply(candidates.parent.html, 'div[contains(@class, "preview-company")]')
-  
 
 # candidates <- read.candidates()
 
 # Identifiers are unique:
 # unique(Reduce(function(a,b){c(a,b$datasets)}, preview.json, c()))
-
-# knit(
-
 
 preview.companies.candidates.html <- as.character((subset(candidates.html, preview.company)$name))
 preview.companies.preview.html <- sapply(preview.html,
@@ -97,3 +92,5 @@ exports <- list(
   candidates.csv = candidates.csv,
   candidates.html = candidates.html
 )
+
+knit('readme.Rmd')

@@ -1,5 +1,6 @@
 ---
 title: A data dictionary of the Open Data 500 data
+kind: article
 ---
 The [Open Data 500](http://www.opendata500.com/download/) is
 "the first comprehensive study of U.S. companies using open government data to develop new products and services."
@@ -494,7 +495,7 @@ companies.
 Three of the files (`Preview50_Companies.csv`, `OD500_Companies.json`,
 and `preview`) agree as to which companies are in the preview.
 
-```r
+```{r}
 all(
   setequal(preview.companies.csv, preview.companies.json),
   setequal(preview.companies.csv, preview.companies.html),
@@ -505,7 +506,7 @@ all(
 According to those three files, the following
 `r length(preview.companies.csv)` companies are in the preview.
 
-```r
+```{r}
 preview.companies.csv
 ```
 
@@ -513,7 +514,7 @@ preview.companies.csv
 The remaining file, `candidates`, agrees that the above companies are in
 the preview,
 
-```r
+```{r}
 setequal(intersect(preview.companies.candidates.html, preview.companies.csv), preview.companies.csv)
 ```
 
