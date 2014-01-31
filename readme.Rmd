@@ -86,9 +86,9 @@ that did not respond to the questionnaire.
 
 I couldn't find any documentation about the process they went through for
 collecting data without the questionnaire. After talking to one of the Team
-members, I think that the Team effectively filled out parts of this
- questionnaire for companies who did not respond. Still, I do not know how they
-chose which companies they would do this for.
+members, I think that the Team collected data about these companies without
+talking directly to anyone who works there, but I do not know how they chose
+the companies nor how they collected the data.
 
 ### Case study
 The Open Data 500 has released data in the
