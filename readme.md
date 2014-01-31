@@ -194,8 +194,8 @@ Code in the spreadsheet | Question from the questionnaire
 `companyPreviousName`   |  
 `yearFounded`           |  Founding Year
 `FTE`                   |  Number of FTE's [2]
-`companyType`           |  Type of Company (Public, Private, Nonprofit, or Other)
-`companyCategory`       |  
+`companyType`           |  Type of Company (`r paste(sort(unique(preview.csv$companyType), collapse = ', '))`) [3]
+`companyCategory`       |  Which best describes the function of your company? 
 `companyFunction`       |  
 `sectors`               |  
 `revenueSource`         |  
@@ -204,6 +204,12 @@ Code in the spreadsheet | Question from the questionnaire
 `socialImpact`          |  
 `financialInfo`         |  
 `criticalDataTypes`     |  
+
+* `datasetName`
+* `datasetURL`
+* `agencyOrDatasetSource`
+* `DATASETS`
+
 
 Notes:
 
@@ -217,12 +223,8 @@ Notes:
   `r subset(preview.csv, CompanyName == 'Climate Corporation')[1,'abbrev']`.)
   but I didn't really check.
 2. "FTE" probably stands for "full-time equivalent employees".
-
-* `datasetName`
-* `datasetURL`
-* `agencyOrDatasetSource`
-* `DATASETS`
-
+3. The questionnaire has different categories from the levels reported in
+    this spreadsheet.
 
 
 ### 500_Companies.csv
