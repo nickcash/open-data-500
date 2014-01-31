@@ -87,14 +87,6 @@ members, I think that the Team effectively filled out parts of this
  questionnaire for companies who did not respond. Still, I do not know how they
 chose which companies they would do this for.
 
-### Sample size
-It is unclear to me how many companies responded to the questionnaire, but I
-think it is either `r length(preview.json)` companies or
-`r sum(candidates.html$survey.company)` companies.
-I explain this more in the
-[Which companies are in the preview?](#which-companies-are-in-the-preview?)
-section.
-
 ### Case study
 The Open Data 500 has released data in the
 "[download](http://www.opendata500.com/download)",
@@ -116,7 +108,15 @@ company does a lot of business in the United States. This is confusing because
 the data releases do not look like the questionnaire, but I'm pretty sure that
 the data come rather directly from the questionnaire.
 
-### Pre-launch
+## Sample size
+It is unclear to me how many companies responded to the questionnaire, but I
+think it is either `r length(preview.json)` companies or
+`r sum(candidates.html$survey.company)` companies.
+I explain this more in the
+[Which companies are in the preview?](#which-companies-are-in-the-preview?)
+section.
+
+## Pre-launch
 According to the "[About](http://www.opendata500.com/about)" page on the
 Open Data 500 site, the Open Data 500 "will identify, describe, and analyze
 companies that use open government data in their businesses."
@@ -608,7 +608,50 @@ to themselves. Another told me that they expected, based on Joel Gurin's
 network, that there were about 500 companies that would respond.
 
 ## Key points and recommendations
-This article a lot of details of the Open Data 500 data, but I'm going to
-try to summarize the broader points.
+That was a lot of details of the Open Data 500 data. Let's see if I can
+summarize my conclusions about the structure of the study and the data.
 
-HTML version is most up-to-date
+### Two sub-studies
+The Open Data 500 Team is assembling two lists.
+
+**The shorter list** (called the "preview" or the "list of 50") is the
+results of a questionnaire, with one response per company. This part is
+a straightforward questionnaire-based case study, and the data that get
+released come directly from the questionnaires.
+
+**The longer list** (called the "list of 500 candidates") makes more sense
+if you think about it as the sum of two lists; some of the companies come from
+the shorter list (the questionnaire responses), and the rest (most) come from
+an undocumented process.
+
+### Which data files you should use
+**If you are interested in the questionnaire results**, I recommend using the
+[`Preview50_Companies.csv`](http://www.opendata500.com/download/Preview50_Companies.csv)
+file; this file is structured more simply than the corresponding JSON files
+([`OD500_Companies.json`](http://www.opendata500.com/download/OD500_Companies.json)
+and [`OD500_Datasets.json`](http://www.opendata500.com/download/OD500_Datasets.json)).
+
+**If you are interested in the long list**, choose your data file based on the
+fields you want and based on whether you want the full list or an incomplete list.
+The two files contain different columns; for example, the flag as to whether the
+company responded to the questionnaire is only available in the HTML version,
+and the link to the company website is only available in the CSV version.
+Thus, you need to choose the file based on which fields you need.
+Also, each of these files contains different companies; if you want to have the
+full list of companies, you need to combine these files, removing duplicates.
+
+**I've already loaded the data into R**, so look
+[here](#loading-into-r) if you want that.
+
+### Other confusing things
+**The "500" in "Open Data 500" doesn't mean anything** as far as I can tell;
+it's not the number of responses, and it's not a reference to the Fortune 500.
+Don't let this confuse you.
+
+**The Open Data 500 is considered "comprehensive" because of its sampling strategy**,
+which is termed "comprehensive call". This strategy is a form of convenience sampling.
+
+**The Open Data 500 is only at data collection stage**; the "analysis"
+component of the study has yet to begin. But the data are already being
+released, so you can start analyzing the data before the Open Data 500
+Team does!
