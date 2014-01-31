@@ -84,7 +84,7 @@ candidates.html <- data.frame(
 preview.companies.candidates.html <- as.character((subset(candidates.html, preview.company)$name))
 preview.companies.preview.html <- sapply(preview.html,
   function(x){xmlValue(xpathApply(x, 'descendant::div[@class="m-preview-list-name"]/strong/text()')[[1]])})
-preview.companies.csv <- preview.csv$CompanyName
+preview.companies.csv <- unique(preview.csv$CompanyName)
 preview.companies.json <- sapply(preview.json, function(x){x$companyName})
 
 exports <- list(
