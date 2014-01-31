@@ -89,13 +89,6 @@ preview.companies.preview.html <- sapply(preview.html,
 preview.companies.csv <- preview.csv$CompanyName
 preview.companies.json <- sapply(preview.json, function(x){x$companyName})
 
-all(
-  setequal(preview.companies.csv, preview.companies.json),
-  setequal(preview.companies.csv, preview.companies.html),
-  setequal(preview.companies.csv, preview.companies.preview.html)
-)
-setequal(preview.companies.csv, preview.companies.candidates.html)
-
 exports <- list(
   datasets.json = datasets.json,
   preview.csv = preview.csv,
