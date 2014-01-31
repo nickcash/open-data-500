@@ -11,15 +11,8 @@ As I understand it, the data released on the website are quite close to simple
 questionnaire results,
 but there are some quirks in this of which you should be aware.
 
-### Convenience sample
-The Open Data 500 has released data for
-"[download]()" and
-as a "[full list]()".
-These data are straightforward questionnaire results (with one [quirk](#questionnaire)).
-
-They can be seen as a
-[convenience sample](http://en.wikipedia.org/wiki/Accidental_sampling)
-of companies that meet their
+### The population of interest
+The Open Data 500 Team is interested in companies that meet their
 [eligibility criteria](http://www.opendata500.com/about/#about-eligibility),
 which they describe as follows.
 
@@ -37,14 +30,45 @@ but I presume that it works as follows.
   must include "Federal Open Data", the questionnaire must indicate elsewhere that
   the company is using state or city data from a range of states or cities.
 
-Remember, I'm pretty much entirely guessing at this.
-
 They are [vetting](http://www.opendata500.com/about/#about-vetted) companies,
 but this sounds like just a conversation with the submitters to check that they
 understood the questionnaire properly.
 
+### Sampling strategy and comprehensiveness
+The questionnaire results can be considered a convenience sample of companies
+that meet the Open Data 500 eligibility criteria.
+
+The Open Data 500 Team distributed links to the questionnaire in
+[these places](http://www.opendata500.com/about/#about-identify).
+
+* Recommendations from government and non-governmental organizations studying this field.
+* List of companies using datasets from Data.gov, the federal hub for government data
+* Online Open Data Userbase created by Socrata
+* Directory of open data companies developed by Deloitte
+* Mass email to 3100 people in the GovLab network
+* Mass email to 2200 people on contact list for OpenDataNow.com, website of Open Data 500 project director Joel Gurin
+* Companies identified in research for upcoming book, Open Data Now
+* Response to coverage of the Open Data 500 in Information Week and FedScoop
+* Outreach through Twitter
+* Outreach at "Data Transparency 2013" conference (September 2013, Washington, DC)
+* Blog posts on TheGovLab.org and OpenDataNow.com
+
+They term this sampling strategy a "comprehensive call", and I think their use
+of a comprehensive call is why the Open Data 500 Team considers the Open Data 500
+to be a comprehensive study.
+
+### Case study
+The Open Data 500 has released data for
+"[download]()" and
+as a "[full list]()".
+These data are the straightforward questionnaire results (with one [quirk](#questionnaire))
+for the companies that met their eligibility criteria.
+
+They can be seen as a
+[convenience sample](http://en.wikipedia.org/wiki/Accidental_sampling)
+
 ### Case Study
-and as a
+
 [case study](http://en.wikipedia.org/wiki/Case_study).
 
 ### Questionnaire
