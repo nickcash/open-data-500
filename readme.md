@@ -157,6 +157,33 @@ document their structure anyway.
 
 ### Preview50_Companies.csv
 [`Preview50_Companies.csv`](http://www.opendata500.com/download/Preview50_Companies.csv)
+is a CSV file with these columns.
+ 
+* `CompanyName`
+* `URL`
+* `city`
+* `STATE`
+* `abbrev`
+* `zipCode`
+* `ceoFirstName`
+* `ceoLastName`
+* `companyPreviousName`
+* `yearFounded`
+* `FTE`
+* `companyType`
+* `companyCategory`
+* `companyFunction`
+* `sectors`
+* `revenueSource`
+* `descriptionLong`
+* `descriptionShort`
+* `socialImpact`
+* `financialInfo`
+* `criticalDataTypes`
+* `datasetName`
+* `datasetURL`
+* `agencyOrDatasetSource`
+* `DATASETS`
 
 ### 500_Companies.csv
 [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
