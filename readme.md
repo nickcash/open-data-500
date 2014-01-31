@@ -526,6 +526,7 @@ talks about "50 companies profiled for early release".
 ## Which companies are the candidates?
 There are also slight conflicts as to what the full list of companies is.
 
+### What the data files say
 `500_Companies.csv` contains `r nrow(candidates.csv)` companies, and
 `candidates` contains `r nrow(candidates.html)` companies.
 Collectively, they list `r length(cset_union(csv,html))` different
@@ -543,20 +544,18 @@ print('In the HTML but not in the CSV')
 print(cset_difference(html, csv))
 ```
 
-
-
+### What the descriptions in English say
 Much of the Open Data 500 website references a list of 500 companies.
 The [download page](http://www.opendata500.com/download) refers to
 [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
 as the "List of 500 Candidates". And the three news articles linked from
 the homepage also reference a list of 500 companies.
 
-None of the downloads match this number, however.
-
-length(intersect(as.character(candidates.html$name), candidates.csv$CompanyName))
-
 ## 500-ness
 I'm still unsure as to what the "500" in the title means.
+As we saw above, it might have something to do with the number of responses,
+but I find it odd that someone would name a study after its sample size.
+So there's probably more to it.
 
 ### Fortune 500?
 Many people have suggested that the name is allusion to
@@ -573,9 +572,15 @@ the Open Data 500 is explicitly not a ranking and not about company size.
 
 ### Number of responses?
 The website says that the Open Data 500 is a list of 500 companies, so it
-might be that the "500" refers to the number of companies responding to the
-questionnaire, but this was a bit odd to me because they had chosen the name
-before they first sent out the questionnaire.
+might be that the "500" refers to the number of companies that they listed.
+As I said above, naming studies after their sample size is a bit odd.
+It seems like they continued looking for companies until they came up with
+500, but I don't understand why they chose the number 500.
+
+The Open Data 500 website [says](http://www.opendata500.com/about/#about-results)
+that "the Open Data 500 study is not meant to provide information for definitive
+statistical analysis", so I doubt they did anything like a power analysis to
+determine how many they needed.
 
 One member of the Team told me that this was just a big number as a challenge
 to themselves. Another told me that they expected, based on Joel Gurin's
