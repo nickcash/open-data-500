@@ -1,0 +1,19 @@
+{
+  "name": "r-open-data-500",
+  "version": "0.0.1",
+  "description": "Data from the Open Data 500",
+  "main": "main.r",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tlevine/open-data-500.git"
+  },
+  "author": "Thomas Levine <_@thomaslevine.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tlevine/open-data-500/issues"
+  },
+  "homepage": "https://github.com/tlevine/open-data-500"
+}
