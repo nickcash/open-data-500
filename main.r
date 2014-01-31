@@ -83,11 +83,18 @@ candidates.html <- data.frame(
 # knit(
 
 
-preview.companies.candidates.html <- sort(as.character((subset(candidates.html, preview.company)$name)))
+preview.companies.candidates.html <- as.character((subset(candidates.html, preview.company)$name))
 preview.companies.preview.html <- sapply(preview.html,
   function(x){xmlValue(xpathApply(x, 'descendant::div[@class="m-preview-list-name"]/strong/text()')[[1]])})
-preview.companies.csv <- sort(unique(preview.csv$CompanyName))
+preview.companies.csv <- preview.csv$CompanyName
 preview.companies.json <- sapply(preview.json, function(x){x$companyName})
+
+all(
+  setequal(preview.companies.csv, preview.companies.json),
+  setequal(preview.companies.csv, preview.companies.html),
+  setequal(preview.companies.csv, preview.companies.preview.html)
+)
+setequal(preview.companies.csv, preview.companies.candidates.html)
 
 exports <- list(
   datasets.json = datasets.json,

@@ -462,13 +462,42 @@ Note that the entire left bar is blue and the entire right bar is red;
 this means that all of the survey companies are in the preview set and
 that none of the non-survey companies are in the preview set.
 
+Well maybe. Given what I'm about to say, I'm starting to wonder whether
+there was a mistake in the HTML version.
+
 ### Which companies are in the preview?
 I still haven't resolved which companies are considered to be the preview
 companies.
 
+Three of the files (`Preview50_Companies.csv`, `OD500_Companies.json`,
+and `preview`) agree as to which companies are in the preview.
 
+```r
+all(
+  setequal(preview.companies.csv, preview.companies.json),
+  setequal(preview.companies.csv, preview.companies.html),
+  setequal(preview.companies.csv, preview.companies.preview.html)
+)
+```
 
+According to those three files, the following
+`r length(preview.companies.csv)` companies are in the preview.
 
+```r
+preview.companies.csv
+```
+
+The remaining file, `candidates`, agrees that the above companies are in
+the preview,
+
+```r
+setequal(intersect(preview.companies.candidates.html, preview.companies.csv), preview.companies.csv)
+```
+
+but it includes 
+`r length(preview.companies.candidates.html) - length(preview.companies.csv)` 
+additional companies, for a total of
+`r length(preview.companies.candidates.html)`.
 
 
 ## 500-ness
