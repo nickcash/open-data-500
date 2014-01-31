@@ -150,12 +150,28 @@ One member of the Team told me that this was just a big number as a challenge
 to themselves. Another told me that they expected, based on Joel Gurin's
 network, that there were about 500 companies that would respond.
 
-## Accessing the data
-The data are released in six different files.
+## Accessing the data from the "download" section
+The files in the download section contain less information than the rest of
+the website, so I recommend against using them. That said, I'm going to
+document their structure anyway.
 
-* [`Preview50_Companies.csv`](http://www.opendata500.com/download/Preview50_Companies.csv)
-* [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
-* [`OD500_Companies.json`](http://www.opendata500.com/download/OD500_Companies.json)
-* [`OD500_Datasets.json`](http://www.opendata500.com/download/OD500_Datasets.json)
-* [`preview`](http://www.opendata500.com/preview/) (HTML)
-* [`candidates`](http://www.opendata500.com/candidates/) (HTML)
+### Preview50_Companies.csv
+[`Preview50_Companies.csv`](http://www.opendata500.com/download/Preview50_Companies.csv)
+
+### 500_Companies.csv
+[`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
+
+### OD500_Companies.json
+[`OD500_Companies.json`](http://www.opendata500.com/download/OD500_Companies.json)
+
+### OD500_Companies.json
+[`OD500_Datasets.json`](http://www.opendata500.com/download/OD500_Datasets.json)
+
+
+
+## Accessing data across HTML web pages
+I recommend accessing the data from the HTML files "preview" and "Full list" sections.
+
+### Preview
+
+### Full list
