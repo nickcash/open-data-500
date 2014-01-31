@@ -479,7 +479,7 @@ collect information about the companies but not through a questionnaire.)
 The datasets are also color-coded based on whether the companies are included
 in the Preview set.
 
-```{r preview_v_candidates, fig.width = 8, fig.height = 4, dpi = 42}
+```{r preview_v_candidates, fig.width = 10, fig.height = 7, dpi = 84}
 p
 ```
 {:.wide}
