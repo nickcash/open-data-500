@@ -9,12 +9,12 @@ You may have read about it in.
 [Fedscoop](http://fedscoop.com/open-data-500-intersection-open-data-economy/)
 This is [data about open data](/open-data), so I naturally wanted it.
 In the present article, I explain a bit about how the study is being conducted
-and how the data are presented for download 
+and how the data are presented for download.
 
 ## Data collection methods
-As I understand it, the data released on the website are quite close to simple
-questionnaire results,
-but there are some quirks in this of which you should be aware.
+The Open Data 500 looks a bit scary and complicated when you read its website
+and the articles about it, but the Open Data 500 is pretty much just a
+straightforward questionnaire survey.
 
 ### The population of interest
 The Open Data 500 Team is interested in companies that meet their
@@ -35,7 +35,7 @@ but I presume that it works as follows.
   must include "Federal Open Data", the questionnaire must indicate elsewhere that
   the company is using state or city data from a range of states or cities.
 
-They are [vetting](http://www.opendata500.com/about/#about-vetted) companies,
+They are "[vetting](http://www.opendata500.com/about/#about-vetted)" companies,
 but this sounds like just a conversation with the submitters to check that they
 understood the questionnaire properly.
 
