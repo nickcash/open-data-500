@@ -47,7 +47,18 @@ datasets.json <- read.datasets()
 preview.csv <- od500.csv('Preview50_Companies.csv')
 preview.json <- od500.json('OD500_Companies.json')
 candidates.csv <- od500.csv('500_Companies.csv')
-preview.html <- xpathSApply(od500.html('preview'), '//ul[@class="m-preview-list"]/li[@class="m-list-company"]')
+preview.xpath <- '//ul[@class="m-preview-list"]/li[@class="m-list-company"]'
+preview.html <- xpathApply(od500.html('preview'), preview.xpath)
+candidates.xpath <- '//div[@class="m-candidates isotopes-container"]/div'
+candidates.html <- xpathApply(od500.html('candidates'), candidates.xpath)
+candidates.parent.xpath <- '//div[@class="m-candidates isotopes-container"]'
+candidates.parent.html <- xpathApply(od500.html('candidates'), candidates.parent.xpath)[[1]]
+
+preview.company.xpath <- 'contains(@class, "preview-company")'
+survey.company.xpath <- 'contains(@class, "survey-company")'
+
+# xpathApply(candidates.parent.html, 'div[contains(@class, "preview-company")]')
+  
 
 # candidates <- read.candidates()
 

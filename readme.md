@@ -118,12 +118,15 @@ I'm pretty sure that these 50 are just some of the early submitters; they
 are have not been vetted or ranked in any way. But if that's all it is, why
 don't they put all of the companies in there?
 
-I think that there are two reasons. First, the candidate list includes some
-companies that have not filled out the questionnaire. The in-depth list, on
-the other hand, includes only companies that filled out the questionnaire.
-Second, I suspect that they have to enter the company information into the
-website somewhat manually and that they just haven't gotten around to
-entering the full information about all of the companies.
+
+XXX
+
+I think that preview companies are simply all of the companies that have
+submitted the questionnaire; the non-preview companies are companies for
+which the the Open Data 500 team effectively filled out the questionnaire.
+
+xpathApply(candidates.html[[3]], 'contains(@class, "preview-company")')
+
 
 ## 500-ness
 I'm still unsure as to what the "500" in the title means.
@@ -389,7 +392,13 @@ containing a non-standard representation of a data table about companies.
 
 The companies are represented as a nodes with the following XPath.
 
-    //ul[@class="m-preview-list"]/li[@class="m-list-company"]
+```{r}
+preview.xpath
+```
+
+The file contains `r length(preview.html)` companies and about 11 fields
+(depending on your definition of a field). The fields are approximately
+a subset of the fields for `Preview50_Companies.csv`.
 
 I don't feel like writing out selectors for every field within each company
 node, but you can figure it out by looking at the code for the first company.
@@ -399,18 +408,49 @@ preview.html[[1]]
 ```
 
 I do want to point out the dataset nodes in particular. Each company node lists
-zero or more datasets, each with a URL and a title.
+zero or more datasets, each with a URL and a title. Here is how you query them.
 
 ```{r}
 df <- data.frame(
-  urls = xpathSApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/@href')
-  titles = xpathSApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/text()')  
+  urls = xpathApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/@href')
+  titles = xpathApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/text()')  
 )
 kable(df)
 ```
 
 ### candidates (HTML)
-[`candidates`](http://www.opendata500.com/candidates/)
+[`candidates`](http://www.opendata500.com/candidates/) is another HTML page
+containing a non-standard representation of a data table about companies.
+You can select the companies with the following XPath.
+
+```{r}
+candidates.xpath
+```
+
+This file contains `r length(candidates.html)` companies. To give you a feel
+for the schema, the first company is represented like this.
+
+```{r}
+candidates.html[[1]]
+```
+
+I'd say that this file contains seven fields. Four of them are direct
+questionnaire questions.
+
+XPath within the company node               | Questionnaire question or meaning
+-----------------------------               | --------------------------------
+a/h3/strong/text()                          | Name of your company
+p[@class="m-homepage-list-location"]/text() | In which city is this company located?
+em/text()                                   | Which best describes the function of your company?
+p[@class="m-homepage-list-desc"]/text()     | As a summary, please provide a one sentence description of your company.
+
+Three of them are not
+
+XPath within the company node | Meaning
+----------------------------- | --------------------------------
+`r preview.company.xpath`     | Is the company part of the "Preview" companies?
+`r survey.company.xpath`      | Did the company submit the questionnaire?
+a/@href                       | Link to a page on the Open Data 500 site with more information from the questionnaire about the company
 
 ## Loading into R
 
