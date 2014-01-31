@@ -69,8 +69,9 @@ the Open Data 500 to be a comprehensive study.
 
 ### Case study
 The Open Data 500 has released data in the
-"[download]()" and
-"[full list]()" sections.
+"[download]()",
+"[preview](http://www.opendata500.com/preview/)",
+"[full list](http://www.opendata500.com/candidates/)" sections.
 These data are the straightforward questionnaire results (with one [quirk](#questionnaire-and-non-questionnaire-responses))
 for the companies that met their eligibility criteria.
 Thus, the Open Data 500 is a [case study](http://en.wikipedia.org/wiki/Case_study)
@@ -150,10 +151,19 @@ One member of the Team told me that this was just a big number as a challenge
 to themselves. Another told me that they expected, based on Joel Gurin's
 network, that there were about 500 companies that would respond.
 
-## Accessing the data from the "download" section
-The files in the download section contain less information than the rest of
-the website, so I recommend against using them. That said, I'm going to
-document their structure anyway.
+## Data files
+The Open Data 500 Team has released six main data files.
+
+* [`Preview50_Companies.csv`](http://www.opendata500.com/download/Preview50_Companies.csv)
+* [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
+* [`OD500_Companies.json`](http://www.opendata500.com/download/OD500_Companies.json)
+* [`OD500_Datasets.json`](http://www.opendata500.com/download/OD500_Datasets.json)
+* [`preview`](http://www.opendata500.com/preview/) (HTML)
+* [`candidates`](http://www.opendata500.com/candidates/) (HTML)
+
+There are also individual pages about each company, but I'm pretty sure that
+the only extra information on those is comments submitted through the comment
+forms.
 
 ### Preview50_Companies.csv
 [`Preview50_Companies.csv`](http://www.opendata500.com/download/Preview50_Companies.csv)
@@ -373,11 +383,11 @@ One is the `datasetID` column, which serves as a primary key for this table.
 The other is the `usedByCompany` column, which references the `companyId`
 in `OD500_Companies.json`,
 
-### Loading into R
+### preview (HTML)
+[`preview`](http://www.opendata500.com/preview/) is
 
-## Accessing data across HTML web pages
-I recommend accessing the data from the HTML files "preview" and "Full list" sections.
+### candidates (HTML)
+[`candidates`](http://www.opendata500.com/candidates/)
 
-### Preview
+## Loading into R
 
-### Full list
