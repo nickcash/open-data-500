@@ -62,7 +62,7 @@ to be a comprehensive study.
 The Open Data 500 has released data in the
 "[download]()" and
 "[full list]()" sections.
-These data are the straightforward questionnaire results (with one [quirk](#questionnaire))
+These data are the straightforward questionnaire results (with one [quirk](#questionnaire-and-non-questionnaire-responses))
 for the companies that met their eligibility criteria.
 Thus, the Open Data 500 is a [case study](http://en.wikipedia.org/wiki/Case_study)
 of companies that meet the Open Data 500 eligibility criteria.
@@ -75,11 +75,29 @@ Open Data 500 Team solicited responses to this questionnaire through
 that did not respond to the questionnaire; the Team effectively filled out
 parts of this questionnaire for companies who did not respond.
 
-### Further analyses
+### Just a questionnaire
+According to the "[About](http://www.opendata500.com/about)" page on the
+Open Data 500 site, the Open Data 500 "will identify, describe, and analyze
+companies that use open government data in their businesses." As I understand
+it, the analysis component of this has yet to occur.
+This is the main thing that confused me about the study, so I'm going to
+explain this part in a bit more depth in case anyone else was also confused.
 
+The data collection for the Open Data 500 is just the questionnaire. Really.
+For example, the Team isn't looking at companies products to see which open data
+are used, and it isn't looking at annual reports to determine whether the
+company does a lot of business in the United States. This is confusing because
+the data releases do not look like the questionnaire, but I'm pretty sure that
+the data come rather directly from the questionnaire.
 
-### Lack of rating
-I talked to a member of the Open Data 500 Team for some clarifications.
+### Preview of 50 companies
+Further analyses
+
+### Pre-launch
+At the moment, the Open Data 500 is in "pre-launch". This means that they have
+begun to collect data but that they haven't done any sort of analysis on it.
+(This part isn't explained on the website, but a member of the Open Data 500
+Team explained this to me in person.)
 
 ## 
 In the present article, I explain a bit about how the study is being conducted
