@@ -432,10 +432,35 @@ The preview companies are simply all of the companies that have
 submitted the questionnaire; the non-preview companies are companies for
 which the the Open Data 500 team effectively filled out the questionnaire.
 
-```{r}
-n.preview <- xpathApply(candidates.parent.html, 'count(div[contains(@class, "preview-company")])')
-n.survey <- xpathApply(candidates.parent.html, 'count(div[contains(@class, "survey-company")])')
+I came to that conclusion by looking at the following plot. In this plot,
+the height of the bars represents the number of companies in a particular
+category. The left category is companies that have completed the questionnaire,
+and the right category is companies that haven't. (The Open Data 500 Team
+collect information about the companies but not through a questionnaire.)
+The datasets are also color-coded based on whether the companies are included
+in the Preview set.
+
+```{r preview_v_candidates}
+candidates.html$preview.company <-
+  factor(candidates.html$preview.company, levels = c(TRUE,FALSE))
+levels(candidates.html$preview.company) <- c('Yes','No')
+
+candidates.html$survey.company <-
+  factor(candidates.html$survey.company, levels = c(TRUE,FALSE))
+levels(candidates.html$survey.company) <- c('Yes','No')
+
+ggplot(candidates.html) + aes(x = survey.company, fill = preview.company) +
+  scale_fill_discrete('Is the company listed as a preview company\nin the preview HTML file') +
+  scale_x_discrete('Did the company complete the questionnaire?') +
+  scale_y_continuous('Number of companies') +
+  theme(legend.position = 'bottom') +
+  geom_bar() +
+  ggtitle('Are the preview companies simply the companies who have responded to the questionnaire?')
 ```
+
+Note that the entire left bar is blue and the entire right bar is red;
+this means that all of the survey companies are in the preview set and
+that none of the non-survey companies are in the preview set.
 
 ### Which companies are in the preview?
 
