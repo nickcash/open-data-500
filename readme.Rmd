@@ -386,8 +386,8 @@ zero or more datasets, each with a URL and a title. Here is how you query them.
 
 ```{r}
 df <- data.frame(
-  urls = xpathApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/@href'),
-  titles = xpathApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/text()')  
+  urls = unlist(xpathApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/@href'), use.names = FALSE),
+  titles = xpathSApply(preview.html[[1]], 'div[@class="m-list-company-full"]/div[@class="m-full datasets"]/ul/li/a/text()', xmlValue)
 )
 kable(df)
 ```
@@ -405,7 +405,7 @@ This file contains `r nrow(candidates.html)` companies. To give you a feel
 for the schema, the first company is represented like this.
 
 ```{r}
-xpathApply(candidates.parents.html, 'div')[[1]]
+xpathApply(candidates.parent.html, 'div')[[1]]
 ```
 
 I'd say that this file contains seven fields. Four of them are direct
@@ -484,7 +484,6 @@ and `preview`) agree as to which companies are in the preview.
 ```{r}
 all(
   setequal(preview.companies.csv, preview.companies.json),
-  setequal(preview.companies.csv, preview.companies.html),
   setequal(preview.companies.csv, preview.companies.preview.html)
 )
 ```
