@@ -1,3 +1,6 @@
+---
+title: Understanding the Open Data 500 data
+---
 The [Open Data 500](http://www.opendata500.com/download/) is
 "the first comprehensive study of U.S. companies using open government data to develop new products and services."
 You may have read about it in.
@@ -5,6 +8,8 @@ You may have read about it in.
 [Information Week](http://www.informationweek.com/government/open-government/open-government-data-companies-cash-in/d/d-id/1113143), or
 [Fedscoop](http://fedscoop.com/open-data-500-intersection-open-data-economy/)
 This is [data about open data](/open-data), so I naturally wanted it.
+In the present article, I explain a bit about how the study is being conducted
+and how the data are presented for download 
 
 ## Data collection methods
 As I understand it, the data released on the website are quite close to simple
@@ -75,7 +80,7 @@ Open Data 500 Team solicited responses to this questionnaire through
 that did not respond to the questionnaire; the Team effectively filled out
 parts of this questionnaire for companies who did not respond.
 
-### Just a questionnaire
+## Just a questionnaire
 According to the "[About](http://www.opendata500.com/about)" page on the
 Open Data 500 site, the Open Data 500 "will identify, describe, and analyze
 companies that use open government data in their businesses." As I understand
@@ -99,6 +104,4 @@ begun to collect data but that they haven't done any sort of analysis on it.
 (This part isn't explained on the website, but a member of the Open Data 500
 Team explained this to me in person.)
 
-## 
-In the present article, I explain a bit about how the study is being conducted
-and how the data are presented for download 
+## Accessing the data
