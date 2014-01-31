@@ -49,14 +49,29 @@ preview.json <- od500.json('OD500_Companies.json')
 candidates.csv <- od500.csv('500_Companies.csv')
 preview.xpath <- '//ul[@class="m-preview-list"]/li[@class="m-list-company"]'
 preview.html <- xpathApply(od500.html('preview'), preview.xpath)
+
 candidates.xpath <- '//div[@class="m-candidates isotopes-container"]/div'
-candidates.html <- xpathApply(od500.html('candidates'), candidates.xpath)
+candidates.html.nodes <- xpathApply(od500.html('candidates'), candidates.xpath)
+candidates.html.field <- function(xpath, func = identity){
+  x <- lapply(candidates.html.nodes, function(e){xpathApply(e, xpath)[[1]]})
+  sapply(x, func)
+}
+
 candidates.parent.xpath <- '//div[@class="m-candidates isotopes-container"]'
 candidates.parent.html <- xpathApply(od500.html('candidates'), candidates.parent.xpath)[[1]]
 
 preview.company.xpath <- 'contains(@class, "preview-company")'
 survey.company.xpath <- 'contains(@class, "survey-company")'
 
+candidates.html <- data.frame(
+  name = candidates.html.field('a/h3/strong/text()', xmlValue),
+  city = candidates.html.field('p[@class="m-homepage-list-location"]/text()', xmlValue),
+  func = candidates.html.field('em/text()', xmlValue),
+  desc = candidates.html.field('p[@class="m-homepage-list-desc"]/text()', xmlValue),
+  preview.company = candidates.html.field(preview.company.xpath),
+  survey.company = candidates.html.field(survey.company.xpath),
+  href = candidates.html.field('a/@href')
+)
 # xpathApply(candidates.parent.html, 'div[contains(@class, "preview-company")]')
   
 

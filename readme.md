@@ -379,11 +379,11 @@ You can select the companies with the following XPath.
 candidates.xpath
 ```
 
-This file contains `r length(candidates.html)` companies. To give you a feel
+This file contains `r nrow(candidates.html)` companies. To give you a feel
 for the schema, the first company is represented like this.
 
 ```{r}
-candidates.html[[1]]
+xpathApply(candidates.parents.html, 'div')[[1]]
 ```
 
 I'd say that this file contains seven fields. Four of them are direct
