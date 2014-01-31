@@ -562,10 +562,10 @@ companies, and they disagree about the following companies.
 csv <- cset(sub(' *$', '', candidates.csv$CompanyName))
 html<- cset(sub(' *$', '', as.character(candidates.html$name)))
 
-print('In the CSV but not in the HTML')
+print('These are in the CSV but not in the HTML.')
 print(cset_difference(csv, html))
-cat('\n')
-print('In the HTML but not in the CSV')
+
+print('These are in the HTML but not in the CSV.')
 print(cset_difference(html, csv))
 ```
 
