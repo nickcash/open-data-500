@@ -160,30 +160,64 @@ document their structure anyway.
 is a denormalized CSV file with
 `r ncol(preview.csv) columns and `r nrow(preview.csv)` rows.
 Each row corresponds to a dataset within a company, and
+each column corresponds to a question from the
+[questionnaire](http://www.opendata500.com/submitCompany/).
 `r length(unique(preview.csv$CompanyName))` different companies are
-represented in this dataset
+represented in this dataset.
 
-* `CompanyName`
-* `URL`
-* `city`
-* `STATE`
-* `abbrev`
-* `zipCode`
-* `ceoFirstName`
-* `ceoLastName`
-* `companyPreviousName`
-* `yearFounded`
-* `FTE`
-* `companyType`
-* `companyCategory`
-* `companyFunction`
-* `sectors`
-* `revenueSource`
-* `descriptionLong`
-* `descriptionShort`
-* `socialImpact`
-* `financialInfo`
-* `criticalDataTypes`
+These columns describe the companies, and they are identical across different
+rows about the same company. 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Code in the spreadsheet | Question from the questionnaire
+----------------------- | -------------------------------
+`CompanyName`           |  Name of your company
+`URL`                   |  Company URL
+`city`                  |  In which city is this company located?
+`STATE`                 |  State [1]
+`abbrev`                |  State [1]
+`zipCode`               |  Zip Code
+`ceoFirstName`          |  First Name of CEO
+`ceoLastName`           |  Last Name of CEO
+`companyPreviousName`   |  
+`yearFounded`           |  Founding Year
+`FTE`                   |  Number of FTE's [2]
+`companyType`           |  Type of Company (Public, Private, Nonprofit, or Other)
+`companyCategory`       |  
+`companyFunction`       |  
+`sectors`               |  
+`revenueSource`         |  
+`descriptionLong`       |  
+`descriptionShort`      |  
+`socialImpact`          |  
+`financialInfo`         |  
+`criticalDataTypes`     |  
+
+Notes:
+
+1. The state is asked in one question, where a drop-down menu of the full
+  names of states are provided. The spreadsheet provides two columns for this
+  one value: one for the full name, and the other for the two-letter
+  abbreviation. These two columns seem to match, (For example, Climate
+  Corporation has a `STATE` of
+  `r subset(preview.csv, CompanyName == 'Climate Corporation')[1,'STATE']`
+  and an `abbrev` of
+  `r subset(preview.csv, CompanyName == 'Climate Corporation')[1,'abbrev']`.)
+  but I didn't really check.
+2. "FTE" probably stands for "full-time equivalent employees".
+
 * `datasetName`
 * `datasetURL`
 * `agencyOrDatasetSource`
