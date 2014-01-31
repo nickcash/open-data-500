@@ -462,8 +462,8 @@ Note that the entire left bar is blue and the entire right bar is red;
 this means that all of the survey companies are in the preview set and
 that none of the non-survey companies are in the preview set.
 
-Well maybe. Given what I'm about to say, I'm starting to wonder whether
-there was a mistake in the HTML version.
+Well maybe. Given what I'm about to say in the next section, I'm starting
+to wonder whether there was a mistake in the HTML version.
 
 ### Which companies are in the preview?
 I still haven't resolved which companies are considered to be the preview
@@ -523,6 +523,38 @@ GovLab also published profiles of 50 companies creating value from open governme
 And the [Fedscoop](http://fedscoop.com/open-data-500-intersection-open-data-economy/) article
 talks about "50 companies profiled for early release".
 
+## Which companies are the candidates?
+There are also slight conflicts as to what the full list of companies is.
+
+`500_Companies.csv` contains `r nrow(candidates.csv)` companies, and
+`candidates` contains `r nrow(candidates.html)` companies.
+Collectively, they list `r length(cset_union(csv,html))` different
+companies; they agree about `r length(cset_intersection(csv,html))`
+companies, and they disagree about the following companies.
+
+```{r}
+csv <- cset(sub(' *$', '', candidates.csv$CompanyName))
+html<- cset(sub(' *$', '', as.character(candidates.html$name)))
+
+print('In the CSV but not in the HTML')
+print(cset_difference(csv, html))
+cat('\n')
+print('In the HTML but not in the CSV')
+print(cset_difference(html, csv))
+```
+
+
+
+Much of the Open Data 500 website references a list of 500 companies.
+The [download page](http://www.opendata500.com/download) refers to
+[`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
+as the "List of 500 Candidates". And the three news articles linked from
+the homepage also reference a list of 500 companies.
+
+None of the downloads match this number, however.
+
+length(intersect(as.character(candidates.html$name), candidates.csv$CompanyName))
+
 ## 500-ness
 I'm still unsure as to what the "500" in the title means.
 
@@ -548,3 +580,6 @@ before they first sent out the questionnaire.
 One member of the Team told me that this was just a big number as a challenge
 to themselves. Another told me that they expected, based on Joel Gurin's
 network, that there were about 500 companies that would respond.
+
+## Final thoughts
+HTML version is most up-to-date
