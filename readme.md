@@ -230,6 +230,11 @@ Code from the web form  | Question from the questionnaire
 Finally, there is also a `DATASETS` column, which is the number of datasets
 submitted for the particular the company.
 
+The companies listed in this file are the same as the companies listed in
+`OD500_Companies.json`.
+
+<!-- all(unique(sort(preview.csv$CompanyName)) == sort(sapply(candidates.json, function(x){x$companyName}))) -->
+
 Notes:
 
 1. In some cases, answers to one question are presented redundantly across
@@ -266,6 +271,41 @@ This file provides no data about datasets used by the companies.
 
 ### OD500_Companies.json
 [`OD500_Companies.json`](http://www.opendata500.com/download/OD500_Companies.json)
+is a JSON file with an array of associative arrays (that is, a list of mappings).
+It has `r length(preview.json)` rows (associative ararys) and 
+`r unique(sapply(preview.json, length))` columns (items per associative array).
+Each row corresponds to a unique company,
+and each column corresponds to a questionnaire question.
+
+Code in the file        | Question from the questionnaire
+----------------------- | -------------------------------
+`companyName`           | Name of your company
+`url`                   | Company URL
+`city`                  | In which city is this company located?
+`state`                 | State [1]
+`zipCode`               | Zip Code
+`ceoFirstName`          | First Name of CEO
+`ceoLastName`           | Last Name of CEO
+`previousName`          | ???
+`yearFounded`           | Founding Year
+`fte`                   | Number of FTE's [2]
+`companyType`           | Type of Company (`r pretty.levels(preview.csv$companyType)`) [3]
+`companyCategory`       | What category best describes your company? (`r pretty.levels(preview.csv$companyCategory)`) [1]
+`companyFunction`       | Which best describes the function of your company? (`r pretty.levels(preview.csv$companyFunction)`) [3]
+`sector`                | What category best describes your company? (`r pretty.levels(preview.csv$sectors)`) [1,3]
+`revenueSource`         | Which of the following are significant sources of revenue for your company? [4]
+`descriptionLong`       | Please give us a short public statement describing your company’s mission and work. You can take this material from your website or other publications if you choose to.
+`descriptionShort`      | As a summary, please provide a one sentence description of your company.
+`socialImpact`          | Besides revenue generation, how do you measure the impact your company has for society and the public good? 
+`soccialInfo`           | Please include any financial or operational information that will help us understand your company. We are interested in specific information like past and projected annual revenues, total outside investment dollars to date, and significant investors or partners. 
+`criticalDataTypes`     | Which of the following are critical sources of data for your company? By “critical,” we mean that your company would have to shut down a line of business, shut down completely, or replace the data in some way if the data were no longer available.
+
+<!-- subset(preview.csv, CompanyName == 'BillGuard')[1,'financialInfo'] == preview.json[[3]]$socialInfo -->
+
+The companies listed in this file are the same as the companies listed in
+`Preview50_Companies.csv`.
+
+<!-- all(unique(sort(preview.csv$CompanyName)) == sort(sapply(candidates.json, function(x){x$companyName}))) -->
 
 ### OD500_Companies.json
 [`OD500_Datasets.json`](http://www.opendata500.com/download/OD500_Datasets.json)

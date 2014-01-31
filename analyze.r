@@ -36,9 +36,13 @@ pretty.levels <- function(vec) {
 
 datasets.json <- read.datasets()
 preview.csv <- od500.csv('Preview50_Companies.csv')
+preview.json <- od500.json('OD500_Companies.json')
 candidates.csv <- od500.csv('500_Companies.csv')
-candidates.json <- od500.json('OD500_Companies.json')
 
 # candidates <- read.candidates()
+
+# Identifiers are unique:
+# unique(Reduce(function(a,b){c(a,b$datasets)}, preview.json, c()))
+
 
 # knit(
