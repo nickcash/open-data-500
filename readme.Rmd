@@ -145,7 +145,7 @@ forms.
 ### Preview50_Companies.csv
 [`Preview50_Companies.csv`](http://www.opendata500.com/download/Preview50_Companies.csv)
 is a denormalized CSV file with
-`r ncol(preview.csv) columns and `r nrow(preview.csv)` rows.
+`r ncol(preview.csv)` columns and `r nrow(preview.csv)` rows.
 Each row corresponds to a dataset within a company, and
 each column corresponds to a question from the
 [questionnaire](http://www.opendata500.com/submitCompany/).
@@ -237,7 +237,7 @@ Notes:
 ### 500_Companies.csv
 [`500_Companies.csv`](http://www.opendata500.com/download/500_Companies.csv)
 is a CSV file with
-`r ncol(candidates.csv) columns and `r nrow(candidates.csv)` rows.
+`r ncol(candidates.csv)` columns and `r nrow(candidates.csv)` rows.
 Each row corresponds to a unique company, and
 each column corresponds to a question from the
 [questionnaire](http://www.opendata500.com/submitCompany/).
@@ -463,21 +463,7 @@ The datasets are also color-coded based on whether the companies are included
 in the Preview set.
 
 ```{r preview_v_candidates}
-candidates.html$preview.company <-
-  factor(candidates.html$preview.company, levels = c(TRUE,FALSE))
-levels(candidates.html$preview.company) <- c('Yes','No')
-
-candidates.html$survey.company <-
-  factor(candidates.html$survey.company, levels = c(TRUE,FALSE))
-levels(candidates.html$survey.company) <- c('Yes','No')
-
-ggplot(candidates.html) + aes(x = survey.company, fill = preview.company) +
-  scale_fill_discrete('Is the company listed as a preview company\nin the preview HTML file') +
-  scale_x_discrete('Did the company complete the questionnaire?') +
-  scale_y_continuous('Number of companies') +
-  theme(legend.position = 'bottom') +
-  geom_bar() +
-  ggtitle('Are the preview companies simply the companies who have responded to the questionnaire?')
+p
 ```
 
 Note that the entire left bar is blue and the entire right bar is red;

@@ -1,6 +1,8 @@
 library(RJSONIO)
 library(XML)
 library(knitr)
+library(ggplot2)
+library(sets)
 
 od500.csv <- function(filename){
   read.csv(
@@ -36,7 +38,7 @@ read.candidates <- function() {
   merge(ids, od500.csv('500_Companies.csv'), by.x = 'CompanyName', by.y = 'CompanyName')
 }
 
-pretty.levels <- function(x) { UseMethod('pretty.levels')}
+pretty.levels <- function(x, y) { UseMethod('pretty.levels')}
 pretty.levels.character <- function(vec) {
   paste(sort(unique(vec)), collapse = ', ')
 }
@@ -93,5 +95,23 @@ exports <- list(
   candidates.csv = candidates.csv,
   candidates.html = candidates.html
 )
+
+p <- (function(){
+  candidates.html$preview.company <-
+    factor(candidates.html$preview.company, levels = c(TRUE,FALSE))
+  levels(candidates.html$preview.company) <- c('Yes','No')
+
+  candidates.html$survey.company <-
+    factor(candidates.html$survey.company, levels = c(TRUE,FALSE))
+  levels(candidates.html$survey.company) <- c('Yes','No')
+
+  ggplot(candidates.html) + aes(x = survey.company, fill = preview.company) +
+    scale_fill_discrete('Is the company listed as a preview company\nin the preview HTML file') +
+    scale_x_discrete('Did the company complete the questionnaire?') +
+    scale_y_continuous('Number of companies') +
+    theme(legend.position = 'bottom') +
+    geom_bar() +
+    ggtitle('Are the preview companies simply the companies who have responded to the questionnaire?')
+})()
 
 knit('readme.Rmd')
