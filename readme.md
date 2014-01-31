@@ -84,10 +84,6 @@ that did not respond to the questionnaire; the Team effectively filled out
 parts of this questionnaire for companies who did not respond.
 
 ## Just a questionnaire
-According to the "[About](http://www.opendata500.com/about)" page on the
-Open Data 500 site, the Open Data 500 "will identify, describe, and analyze
-companies that use open government data in their businesses." As I understand
-it, the analysis component of this has yet to occur.
 This is the main thing that confused me about the study, so I'm going to
 explain this part in a bit more depth in case anyone else was also confused.
 
@@ -98,19 +94,35 @@ company does a lot of business in the United States. This is confusing because
 the data releases do not look like the questionnaire, but I'm pretty sure that
 the data come rather directly from the questionnaire.
 
+### Pre-launch
+According to the "[About](http://www.opendata500.com/about)" page on the
+Open Data 500 site, the Open Data 500 "will identify, describe, and analyze
+companies that use open government data in their businesses."
+
+As I understand it, the analysis component of this has yet to occur.
+At the moment, the Open Data 500 is in "pre-launch". This means that they have
+begun to collect data but that they haven't done any sort of analysis on it.
+(This part isn't explained on the website, but a member of the Open Data 500
+Team explained this to me in person.)
+
 ### Preview of 50 companies
 The Open Data 500 Team released an
 "[in-depth view](http://www.opendata500.com/preview/)" of "50 of the first
 to complete [the] survey". They also released a
 "[full list](http://www.opendata500.com/candidates/)" of
 "500 candidate companies". It took me a while to understand the difference
-between these companies
+between these companies.
 
-### Pre-launch
-At the moment, the Open Data 500 is in "pre-launch". This means that they have
-begun to collect data but that they haven't done any sort of analysis on it.
-(This part isn't explained on the website, but a member of the Open Data 500
-Team explained this to me in person.)
+I'm pretty sure that these 50 are just some of the early submitters; they
+are have not been vetted or ranked in any way. But if that's all it is, why
+don't they put all of the companies in there?
+
+I think that there are two reasons. First, the candidate list includes some
+companies that have not filled out the questionnaire. The in-depth list, on
+the other hand, includes only companies that filled out the questionnaire.
+Second, I suspect that they have to enter the company information into the
+website somewhat manually and that they just haven't gotten around to
+entering the full information about all of the companies.
 
 ## 500-ness
 I'm still unsure as to what the "500" in the title means.
