@@ -66,3 +66,12 @@ survey.company.xpath <- 'contains(@class, "survey-company")'
 # unique(Reduce(function(a,b){c(a,b$datasets)}, preview.json, c()))
 
 # knit(
+
+exports <- list(
+  datasets.json = datasets.json,
+  preview.csv = preview.csv,
+  preview.html = preview.html,
+  preview.json = preview.json,
+  candidates.csv = candidates.csv,
+  candidates.html = candidates.html
+)
