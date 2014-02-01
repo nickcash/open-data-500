@@ -76,11 +76,6 @@ candidates.html <- data.frame(
   href = candidates.html.field('a/@href')
 )
 
-# candidates <- read.candidates()
-
-# Identifiers are unique:
-# unique(Reduce(function(a,b){c(a,b$datasets)}, preview.json, c()))
-
 preview.companies.candidates.html <- as.character((subset(candidates.html, preview.company)$name))
 preview.companies.preview.html <- sapply(preview.html,
   function(x){xmlValue(xpathApply(x, 'descendant::div[@class="m-preview-list-name"]/strong/text()')[[1]])})
@@ -88,15 +83,6 @@ preview.companies.csv <- unique(preview.csv$CompanyName)
 preview.companies.json <- sapply(preview.json, function(x){x$companyName})
 
 d <- cset(preview.companies.candidates.html, preview.companies.csv)
-
-exports <- list(
-  datasets.json = datasets.json,
-  preview.csv = preview.csv,
-  preview.html = preview.html,
-  preview.json = preview.json,
-  candidates.csv = candidates.csv,
-  candidates.html = candidates.html
-)
 
 p <- (function(){
   candidates.html$preview.company <-
@@ -115,5 +101,14 @@ p <- (function(){
     geom_bar() +
     ggtitle('Are the preview companies simply the companies who have responded to the questionnaire?')
 })()
+
+exports <- list(
+  datasets.json = datasets.json,
+  preview.csv = preview.csv,
+  preview.html = preview.html,
+  preview.json = preview.json,
+  candidates.csv = candidates.csv,
+  candidates.html = candidates.html
+)
 
 # knit('dictionary.Rmd')
