@@ -96,7 +96,10 @@ def to_csv():
         # Collapse the preview and survey nonsense.
         if row['preview.company'] != row['survey.company']:
             warnings.warn('preview.company != survey.company for %s' % row['href'])
-        row['data.collection'] = row['preview.company']
+        row['data.collection'] = {
+            True: 'questionnaire',
+            False:'undocumented',
+        }[row['preview.company']]
         del(row['preview.company'])
         del(row['survey.company'])
 
