@@ -125,7 +125,7 @@ exports <- list(
 
 companies <- read.csv('companies.csv', stringsAsFactors = FALSE)
 datasets <- read.csv('datasets.csv', stringsAsFactors = FALSE)
-datasets$dataset.hostname <- sub('^(?:http://|ftp://|https://)?([^/]*)(?:.*/)?$', '\\1', datasets$dataset.url)
+datasets$dataset.hostname <- sub('^(?:http://|ftp://|https://)?([^/]*)/?.*$', '\\1', datasets$dataset.url)
 url.is.na <- !grepl('\\.', datasets$dataset.url)
 datasets$dataset.hostname[url.is.na] <- NA
 datasets$dataset.url[url.is.na] <- NA
