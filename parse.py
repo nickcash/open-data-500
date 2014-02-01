@@ -75,8 +75,7 @@ fields = [
     'social.impact',
     'financial.info',
 
-    'survey.company',
-    'preview.company',
+    'data.collection',
 
     'datasets',
 ]
@@ -86,12 +85,20 @@ def to_csv():
     writer = csv.DictWriter(out, fields)
     writer.writeheader()
     for row in data():
+        # Nested CSV
         with io.StringIO() as fp:
             subwriter = csv.DictWriter(fp, ['href','name'])
             subwriter.writeheader()
             for dataset in row.get('datasets', []):
                 subwriter.writerow(dataset)
             row['datasets'] = fp.getvalue()
+
+        # Collapse the preview and survey nonsense.
+        if row['preview.company'] != row['survey.company']:
+            warnings.warn('preview.company != survey.company for %s' % row['href'])
+        row['data.collection'] = row['preview.company']
+        del(row['preview.company'])
+        del(row['survey.company'])
 
         writer.writerow(row)
     out.close()
