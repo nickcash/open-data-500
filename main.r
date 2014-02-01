@@ -142,12 +142,14 @@ companies.with.hostnames <- ddply(datasets, 'company.href', function(datasets){
 })
 p.hostnames <- ggplot(companies.with.hostnames) +
   aes(x = unique.dataset.hostnames) +
-  geom_histogram()
+  geom_histogram() +
+  xlab('Number of different website hostnames') +
+  ylab('Number of companies')
 
 df <- ddply(companies.with.hostnames, c('datasets','unique.dataset.hostnames'), function(df) { c(companies = nrow(df)) })
 p.hostnames.datasets <- ggplot(df) +
   aes(x = datasets, y = unique.dataset.hostnames, size = companies) +
-  geom_point()
+  geom_point(size = 10)
 
 p.fte.datasets <- ggplot(companies) +
   aes(y = n.datasets, x = fte, label = company.name) +
@@ -156,3 +158,9 @@ p.fte.datasets <- ggplot(companies) +
 # geom_point(size = 10)
   ggtitle('Larger companies don\'t report more datasets.') +
   geom_text()
+
+p.priorities <- ggplot(companies) +
+  aes(x = nchar(social.impact), y = nchar(financial.info)) +
+  geom_point() + coord_fixed() + geom_abline(slope = 1) +
+  ggtitle('How much they write about social and financial things')
+
