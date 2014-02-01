@@ -1,0 +1,56 @@
+{
+  "name": "open-data-500",
+  "datapackage_version": "1.0-beta",
+  "title": "A nice title",
+  "description": "Data collected by the Open Data 500 study",
+  "homepage": "http://thomaslevine.com/!/open-data-500-package"
+  "version": "0.1",
+  "sources": [{
+    "name": "Open Data 500 \"Full List\"",
+    "web": "http://www.opendata500.com/candidates/"
+  }],
+  "publishers":[ {
+    "name": "Thomas Levine",
+    "email": "_@thomaslevine.com",
+    "web": "http://thomaslevine.com"
+  }],
+  "maintainers": [{
+    "name": "Thomas Levine",
+    "email": "_@thomaslevine.com",
+    "web": "http://thomaslevine.com"
+  }],
+  "contributors":[ {
+    "name": "Open Data 500 Team",
+    "email": "opendata500@thegovlab.org",
+    "web": "http://www.opendata500.com/about/#about-people"
+  },{
+    "name": "Beth Simone Noveck",
+    "web": "http://thegovlab.org/about/team/beth-simone-noveck/"
+  },{
+    "name": "Stefaan Verhulst",
+    "web": "http://thegovlab.org/about/team/stefaan-verhulst/"
+  },{
+    "name": "Joel Gurin",
+    "web": "http://thegovlab.org/about/team/joel-gurin/
+  },{
+    "name": "Laura Manley",
+    "web": "http://thegovlab.org/about/team/laura-manley/"
+  },{
+    "name": "Claudio Mendonca"
+  },{
+    "name": "Luis Daniel Palacios",
+    "web": "http://thegovlab.org/about/team/luis-daniel/"
+  },{
+    "name": "Mehan Jayasuriya"
+  },{
+    "name": "Marilla Li",
+    "web": "http://thegovlab.org/about/team/mehan-jayasuriya/"
+  },{
+    "name": "Marc Krokowski"
+  }],
+  "resources": [
+    {
+      "path": "./open-data-500.csv",
+    }
+  ],
+}

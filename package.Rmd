@@ -1,6 +1,7 @@
-I've recently been trying to understand the [Open Data 500]() data format,
-and my [work thus far](/!/open-data-500-data-dictionary) leaves much to be
-desired.
+I've recently been trying to understand the
+[Open Data 500](http://www.opendata500.com) data format,
+and my [work thus far](/!/open-data-500-data-dictionary)
+leaves much to be desired.
 
 ## More stuff I figured out about the Open Data 500 data
 It was pretty simple to convert the data formats once I figured them out, but
@@ -101,17 +102,21 @@ The three remaining fields are not from the questionnaire
 
 Column name             | Meaning
 ----------------------- | -------------------------------
-'href'                  | Location of the company page within the Open Data 500 website
-'data.collection'       | Which method was used for data collection? ("questionnaire" or "undocumented")
+`href`                  | Location of the company page within the Open Data 500 website
+`data.collection`       | Which method was used for data collection? ("questionnaire" or "undocumented")
 
 ### Questionnaire versus undocumented data collection
 I separate the data collection methods for the Open Data 500 into two methods.
 
 1. Convenience-sampled questionnaire responses
-    ("[comprehensive call]())
+    ("[comprehensive call](#comprehensive-call-sampling-strategy))
 2. Undocumented data collection
 
 Data from both sorts of data collection are included in the dataset that I
 provide, and the `data.collection` field indicates which method was used.
 You'll also notice that much of the data are missing for rows that were
 collected with the undocumented method.
+
+## Using the data
+
+http://data.okfn.org/tools

@@ -82,7 +82,7 @@ fields = [
 ]
 
 def to_csv():
-    out = open('od500.csv', 'w')
+    out = open('open-data-500.csv', 'w')
     writer = csv.DictWriter(out, fields)
     writer.writeheader()
     for row in data():
