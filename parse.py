@@ -30,7 +30,7 @@ def candidate(html):
 
     for p in get_section('Company Information'):
         key = clean_text(p.xpath('strong/text()')[0])
-        value = p.xpath('text()')[0].strip()
+        value = p.xpath('text()')[0].strip() if len(p.xpath('text()')) == 1 else None
         row[key] = value
 
     # Run this only if the full questionnaire has been completed.
@@ -49,12 +49,10 @@ def data():
     html_candidates = parse(path_candidates).getroot()
     for row in candidates(html_candidates):
         path_candidate = os.path.join('www.opendata500.com', row['href'].lstrip('/'))
-        print(path_candidate)
         html_candidate = parse(path_candidate).getroot()
-        print(html_candidate)
         row.update(candidate(html_candidate))
         yield row
 
 if __name__ == '__main__':
     for row in data():
-        pass
+        print(row)
