@@ -123,9 +123,25 @@ exports <- list(
 # companies <- get_resource(open.data.500, 'companies', overlook.types = TRUE)
 # datasets <- get_resource(open.data.500, 'datasets', overlook.types = TRUE)
 
-companies <- read.csv('companies.csv', stringsAsFactors = FALSE)
-datasets <- read.csv('datasets.csv', stringsAsFactors = FALSE)
+# companies <- read.csv('companies.csv', stringsAsFactors = FALSE)
+# datasets <- read.csv('datasets.csv', stringsAsFactors = FALSE)
 datasets$dataset.hostname <- sub('^(?:http://|ftp://|https://)?([^/]*)/?.*$', '\\1', datasets$dataset.url)
 url.is.na <- !grepl('\\.', datasets$dataset.url)
 datasets$dataset.hostname[url.is.na] <- NA
 datasets$dataset.url[url.is.na] <- NA
+
+library(plyr)
+companies.with.hostnames <- ddply(datasets, 'company.href', function(datasets){
+  companies <- datasets[1,]
+  companies$unique.dataset.hostnames = length(unique(datasets$dataset.hostname))
+  companies$datasets = length((datasets$dataset.hostname))
+  companies
+})
+p.hostnames <- ggplot(companies.with.hostnames) +
+  aes(x = unique.dataset.hostnames) +
+  geom_histogram()
+
+df <- ddply(companies.with.hostnames, c('datasets','unique.dataset.hostnames'), function(df) { c(companies = nrow(df)) })
+p.hostnames.datasets <- ggplot(df) +
+  aes(x = datasets, y = unique.dataset.hostnames, size = companies) +
+  geom_point()
