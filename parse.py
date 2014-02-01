@@ -19,7 +19,19 @@ candidates_fields = [
 def candidates(html):
     for div in html.xpath('//div[@class="m-candidates isotopes-container"]/div'):
         flatten = lambda x: x[0] if hasattr(x, '__len__') else x
-        yield {key: flatten(div.xpath(xpath)) for (key, xpath) in candidates_fields}
+        row = {key: flatten(div.xpath(xpath)) for (key, xpath) in candidates_fields}
+
+        # Collapse the preview and survey nonsense.
+        if row['preview.company'] != row['survey.company']:
+            warnings.warn('preview.company != survey.company for %s' % row['href'])
+        row['data.collection'] = {
+            True: 'questionnaire',
+            False:'undocumented',
+        }[row['preview.company']]
+        del(row['preview.company'])
+        del(row['survey.company'])
+
+        yield row
 
 def candidate(html):
     row = {
@@ -45,6 +57,12 @@ def candidate(html):
         x = 'div[@class="m-full datasets"]/ul/li/a'
         row['datasets'] = [{'href':a.xpath('@href')[0], 'name': a.xpath('text()')[0]} \
             for a in div.xpath(x)]
+
+    if 'fte' in row:
+        try:
+            row['fte'] = int(row['fte'])
+        except ValueError:
+            row['fte'] = None
 
     return row
 
@@ -93,16 +111,6 @@ def to_csv():
             for dataset in row.get('datasets', []):
                 subwriter.writerow(dataset)
             row['datasets'] = fp.getvalue()
-
-        # Collapse the preview and survey nonsense.
-        if row['preview.company'] != row['survey.company']:
-            warnings.warn('preview.company != survey.company for %s' % row['href'])
-        row['data.collection'] = {
-            True: 'questionnaire',
-            False:'undocumented',
-        }[row['preview.company']]
-        del(row['preview.company'])
-        del(row['survey.company'])
 
         writer.writerow(row)
     out.close()
