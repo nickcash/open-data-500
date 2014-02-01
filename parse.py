@@ -8,8 +8,8 @@ from lxml.html import parse
 candidates_fields = [
     ('name','a/h3/strong/text()'),
     ('city','p[@class="m-homepage-list-location"]/text()'),
-    ('function','em/text()'),
-    ('description.short','p[@class="m-homepage-list-desc"]/text()'),
+    ('company.function','em/text()'),
+    ('short.description','p[@class="m-homepage-list-desc"]/text()'),
     ('preview.company','contains(@class, "preview-company")'),
     ('survey.company','contains(@class, "survey-company")'),
     ('href','a/@href'),
@@ -29,7 +29,7 @@ def candidate(html):
     def get_section(section):
         return div.xpath('//h3[text()="%s"]/following-sibling::p' % section)
     def clean_text(dirty):
-        return dirty.lower().rstrip(':').replace(' ','.')
+        return dirty.lower().rstrip(': ').replace(' ','.')
 
     for p in get_section('Company Information'):
         key = clean_text(p.xpath('strong/text()')[0])
@@ -59,19 +59,19 @@ def data():
 fields = [
     'href',
     'name',
-    'url'
-    'city', 'location'
+    'url',
+    'city', 'location',
 
     'year.founded',
     'fte',
     'type.of.company',
     'category',
-    'function',
+    'company.function',
     'sector(s)',
     'source.of.revenue',
 
     'description',
-    'description.short',
+    'short.description',
     'social.impact',
     'financial.info',
 
