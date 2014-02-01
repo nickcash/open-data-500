@@ -58,8 +58,8 @@ Anyway, my broader conclusion is that the HTML pages **are** being updated and
 the "download" section **is not** being updated.
 
 ## Packaging the data
-I produced a single CSV file to describe the data, and I've released it
-as a [data package]().
+I produced a single CSV file to describe the data, and this file should make
+a lot more sense than the official CSV files.
 
 ### Upstream sources
 The data come from the "full list" section of the Open Data 500 website.
@@ -120,5 +120,14 @@ You'll also notice that much of the data are missing for rows that were
 collected with the undocumented method.
 
 ## Using the data
+You can download the file at
+[https://raw.github.com/tlevine/open-data-500/master/open-data-500.csv](https://raw.github.com/tlevine/open-data-500/master/open-data-500.csv).
 
-http://data.okfn.org/tools
+I've also packaged the it as a
+[Data Package](http://data.okfn.org/standards/data-package),
+so you can use any of
+[these fancy tools](http://data.okfn.org/tools)
+to load it.
+
+Do tell me if you have any trouble with the files. I'd love to hear about
+anything that you find with the data!
