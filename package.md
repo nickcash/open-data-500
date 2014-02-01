@@ -83,7 +83,7 @@ the questionnaire.
 
 Column name             | Question from the questionnaire
 ----------------------- | -------------------------------
-`name`                  | Name of your company
+`company.name`          | Name of your company
 `url`                   | Company URL
 `location`              | "In which city is this company located?", and "State" (two questions)
 `year.founded`          | Founding Year
@@ -99,17 +99,28 @@ Column name             | Question from the questionnaire
 
 The `dataset` field contains a CSV file of the datasets listed on subsequent
 pages of the questionnaire. This file has a row for each dataset, and it has
-columns for the URL and title of the dataset.
+columns for the URL (`dataset.href`) and name (`dataset.name`) of the dataset.
 
 The three remaining fields are not from the questionnaire
 
 Column name             | Meaning
 ----------------------- | -------------------------------
-`href`                  | Location of the company page within the Open Data 500 website
+`company.href`          | Location of the company page within the Open Data 500 website
 `data.collection`       | Which method was used for data collection? ("questionnaire" or "undocumented")
 
 And I suspect that the `sectors(s)` column comes from the questionnaire,
 but I haven't figured out what question it's from.
+
+### Schema of the datasets file
+In the datasets file, each row is a dataset used by a company.
+The datasets file contains all of the columns that are in the companies
+file except for the `datasets` column, and it adds two more columns:
+`dataset.href` for the link to the dataset, and `dataset.name` for the
+name of the dataset. These are the two columns inside the nested CSV
+files in the companies file.
+
+Because each row is about a dataset, this file contains now data about
+companies with zero datasets.
 
 ### Questionnaire versus undocumented data collection
 I separate the data collection methods for the Open Data 500 into two methods.
