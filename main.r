@@ -125,5 +125,5 @@ exports <- list(
 
 companies <- read.csv('companies.csv', stringsAsFactors = FALSE)
 datasets <- read.csv('datasets.csv', stringsAsFactors = FALSE)
-datasets$dataset.hostname <- sub('^(?:http|ftp|https)://([^/]*)/.*$', '\\1', datasets$dataset.url)
+datasets$dataset.hostname <- sub('^(?:(?:http|ftp|https|)://)?(?:www.)?([^/]*)/.*$', '\\1', datasets$dataset.url)
 
