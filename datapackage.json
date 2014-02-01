@@ -3,7 +3,7 @@
   "datapackage_version": "1.0-beta",
   "title": "A nice title",
   "description": "Data collected by the Open Data 500 study",
-  "homepage": "http://thomaslevine.com/!/open-data-500-package"
+  "homepage": "http://thomaslevine.com/!/open-data-500-package",
   "version": "0.1",
   "sources": [{
     "name": "Open Data 500 \"Full List\"",
@@ -31,7 +31,7 @@
     "web": "http://thegovlab.org/about/team/stefaan-verhulst/"
   },{
     "name": "Joel Gurin",
-    "web": "http://thegovlab.org/about/team/joel-gurin/
+    "web": "http://thegovlab.org/about/team/joel-gurin/"
   },{
     "name": "Laura Manley",
     "web": "http://thegovlab.org/about/team/laura-manley/"
