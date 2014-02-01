@@ -99,7 +99,7 @@ Column name             | Question from the questionnaire
 
 The `dataset` field contains a CSV file of the datasets listed on subsequent
 pages of the questionnaire. This file has a row for each dataset, and it has
-columns for the URL (`dataset.href`) and name (`dataset.name`) of the dataset.
+columns for the URL (`dataset.url`) and name (`dataset.name`) of the dataset.
 
 The three remaining fields are not from the questionnaire
 
@@ -115,7 +115,7 @@ but I haven't figured out what question it's from.
 In the datasets file, each row is a dataset used by a company.
 The datasets file contains all of the columns that are in the companies
 file except for the `datasets` column, and it adds two more columns:
-`dataset.href` for the link to the dataset, and `dataset.name` for the
+`dataset.url` for the link to the dataset, and `dataset.name` for the
 name of the dataset. These are the two columns inside the nested CSV
 files in the companies file.
 

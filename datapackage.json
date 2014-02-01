@@ -50,6 +50,96 @@
   }],
   "resources": [
     {
+      "path": "./companies.csv",
+      "format": "csv",
+      "schema": {
+        "primarykey": "company.href",
+        "fields": [{
+          "name": "company.href",
+          "title": "Link to the company on http://www.opendata500.com",
+          "type": "string",
+          "format": "Absolute href on the http://www.opendata500.com website",
+          "description": "Some of the information for a particular row was taken from the page corresponding to the href of that particular row"
+        },{
+          "name": "company.name",
+          "title": "Company Name",
+          "type": "string",
+          "description": "Response to the question "
+        },{
+          "name": "url",
+          "title": "Website",
+          "type": "string",
+          "description": "Response to the question \"Company URL\""
+        },{
+          "name": "location",
+          "title": "Location",
+          "type": "string",
+          "description": "Responses to the question \"In which city is this company located?\", and \"State\", concatenated"
+        },{
+          "name": "year.founded",
+          "title": "Year founded",
+          "type": "string",
+          "description": "Response to the question \"Founding Year\""
+        },{
+          "name": "fte",
+          "title": "Number of full-time employees",
+          "type": "string",
+          "description": "Response to the question \"Number of FTE's\""
+        },{
+          "name": "type.of.company",
+          "title": "Type of company",
+          "type": "string",
+          "description": "Response to the question \"Type of Company\""
+        },{
+          "name": "category",
+          "title": "Category",
+          "type": "string",
+          "description": "Response to the question \"What category best describes your company?\""
+        },{
+          "name": "company.function",
+          "title": "Function",
+          "type": "string",
+          "description": "Response to the question \"Which best describes the function of your company?\""
+        },{
+          "name": "sector(s)",
+          "title": "Sector(s)",
+          "type": "string",
+          "description": "I don't know where this field comes from."
+        },{
+          "name": "description",
+          "title": "Long description",
+          "type": "string",
+          "description": "Response to the question \"Please give us a short public statement describing your company’s mission and work. You can take this material from your website or other publications if you choose to.\""
+        },{
+          "name": "description.short",
+          "title": "Short description",
+          "type": "string",
+          "description": "Response to the question \"As a summary, please provide a one sentence description of your company.\""
+        },{
+          "name": "social.impact",
+          "title": "Measures of social impact",
+          "type": "string",
+          "description": "Response to the question \"Besides revenue generation, how do you measure the impact your company has for society and the public good? \""
+        },{
+          "name": "financial.info",
+          "title": "Financial or operational information",
+          "type": "string",
+          "description": "Response to the question \"Please include any financial or operational information that will help us understand your company. We are interested in specific information like past and projected annual revenues, total outside investment dollars to date, and significant investors or partners. \""
+        },{
+          "name": "data.collection",
+          "title": "Data collection method",
+          "type": "string",
+          "format": "\"questionnaire\" or \"undocumented\"",
+          "description": "Which method was used for data collection?"
+        },{
+          "name": "datasets",
+          "title": "Datasets",
+          "type": "csv",
+          "format": "One row per dataset, columns are dataset url and dataset name",
+          "description": "Datasets that the company lists as using"
+        }]
+      }
+    },{
       "path": "./open-data-500.csv",
       "format": "csv",
       "schema": {
@@ -131,13 +221,17 @@
           "format": "\"questionnaire\" or \"undocumented\"",
           "description": "Which method was used for data collection?"
         },{
-          "name": "datasets",
-          "title": "Datasets",
-          "type": "csv",
-          "format": "One row per dataset, columns are dataset url and dataset name",
-          "description": "Datasets that the company lists as using"
+          "name": "dataset.url",
+          "title": "Dataset URL",
+          "type": "string",
+          "description": "Response to the question \"URL of Dataset\""
+        },{
+          "name": "dataset.name",
+          "title": "Dataset Name",
+          "type": "string",
+          "description": "Response to the question \"Name of Dataset\""
         }]
       }
     }
-  ],
+  ]
 }

@@ -55,7 +55,7 @@ def candidate(html):
             row[clean_text(section)] = get_section(section)[0].text_content()
 
         x = 'div[@class="m-full datasets"]/ul/li/a'
-        row['datasets'] = [{'dataset.href':a.xpath('@href')[0], 'dataset.name': a.xpath('text()')[0]} \
+        row['datasets'] = [{'dataset.url':a.xpath('@href')[0], 'dataset.name': a.xpath('text()')[0]} \
             for a in div.xpath(x)]
 
     if 'fte' in row:
@@ -98,7 +98,7 @@ company_fields = [
 
     'datasets',
 ]
-nested_dataset_fields = ['dataset.href','dataset.name']
+nested_dataset_fields = ['dataset.url','dataset.name']
 dataset_fields = company_fields[:-1] + nested_dataset_fields
 
 def companies_csv():
