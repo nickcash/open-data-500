@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 import os
+import csv
+import io
+
 from lxml.html import parse
 
 candidates_fields = [
@@ -53,6 +56,17 @@ def data():
         row.update(candidate(html_candidate))
         yield row
 
-if __name__ == '__main__':
+def main():
     for row in data():
+        with io.StringIO() as fp:
+            writer = csv.DictWriter(fp, ['href','name'])
+            writer.writeheader()
+            for dataset in row.get('datasets', []):
+                writer.writerow(dataset)
+            row['datasets'] = fp.getvalue()
         print(row)
+        if row['datasets'] != '':
+            break
+
+if __name__ == '__main__':
+    main()
