@@ -5,6 +5,7 @@ download:
 # The full site
 www.opendata500.com:
 	wget -r http://www.opendata500.com/
+	./fix.sh
 
 www.opendata500.com/addData/52eb5431def7fa00029abc8f/index.html: 
 	mkdir -p www.opendata500.com/addData/52eb5431def7fa00029abc8f/ 
