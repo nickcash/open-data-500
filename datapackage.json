@@ -51,6 +51,7 @@
   "resources": [
     {
       "path": "./companies.csv",
+      "name": "companies",
       "format": "csv",
       "schema": {
         "primarykey": "company.href",
@@ -140,7 +141,8 @@
         }]
       }
     },{
-      "path": "./open-data-500.csv",
+      "path": "./datasets.csv",
+      "name": "datasets",
       "format": "csv",
       "schema": {
         "primarykey": "href",

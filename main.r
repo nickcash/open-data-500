@@ -112,3 +112,16 @@ exports <- list(
 )
 
 # knit('dictionary.Rmd')
+
+
+# library(devtools)
+# install_github("RODProt", "QBRC")
+
+# library(RODProt)
+# read_data_package('./datapackage.json')
+# open.data.500 <- read_data_package('./datapackage.json')
+# companies <- get_resource(open.data.500, 'companies', overlook.types = TRUE)
+# datasets <- get_resource(open.data.500, 'datasets', overlook.types = TRUE)
+
+companies <- read.csv('companies.csv')
+datasets <- read.csv('datasets.csv')
