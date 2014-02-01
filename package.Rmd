@@ -87,7 +87,6 @@ Column name             | Question from the questionnaire
 `type.of.company`       | Type of Company
 `category`              | What category best describes your company?
 `function`              | Which best describes the function of your company?
-`sectors(s)`            | What category best describes your company?
 `source.of.revenue`     | Which of the following are significant sources of revenue for your company?
 `description`           | Please give us a short public statement describing your company’s mission and work. You can take this material from your website or other publications if you choose to.
 `description.short`     | As a summary, please provide a one sentence description of your company.
@@ -104,6 +103,9 @@ Column name             | Meaning
 ----------------------- | -------------------------------
 `href`                  | Location of the company page within the Open Data 500 website
 `data.collection`       | Which method was used for data collection? ("questionnaire" or "undocumented")
+
+And I suspect that the `sectors(s)` column comes from the questionnaire,
+but I haven't figured out what question it's from.
 
 ### Questionnaire versus undocumented data collection
 I separate the data collection methods for the Open Data 500 into two methods.
