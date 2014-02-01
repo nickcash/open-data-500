@@ -58,8 +58,12 @@ Anyway, my broader conclusion is that the HTML pages **are** being updated and
 the "download" section **is not** being updated.
 
 ## Packaging the data
-I produced a single CSV file to describe the data, and this file should make
-a lot more sense than the official CSV files.
+I produced two different CSV file to describe the same data, and these file
+should make a lot more sense than the official CSV files. One of the files,
+`companies.csv`, has a row for every company and is normalized. The other,
+`datasets.csv`, has a row for every dataset, with different rows duplicating
+the data about the companies; it is denormalized and contains no data about
+the companies that lack datasets.
 
 ### Upstream sources
 The data come from the "full list" section of the Open Data 500 website.
@@ -71,7 +75,7 @@ If the same field was present on both pages (for example, the company name),
 I used the value on the company's particular page rather than the value on the
 main "full list" page.
 
-### Schema
+### Schema of the companies file
 The dataset is a single CSV file, where each row is a company and most columns
 are answers to questionnaire questions. (I think! Remember that I'm guessing at
 all of this.) Here are the columns that I think to come from the first page of

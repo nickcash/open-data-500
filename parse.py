@@ -7,13 +7,13 @@ import warnings
 from lxml.html import parse
 
 candidates_fields = [
-    ('name','a/h3/strong/text()'),
+    ('company.name','a/h3/strong/text()'),
     ('location','p[@class="m-homepage-list-location"]/text()'),
     ('company.function','em/text()'),
     ('short.description','p[@class="m-homepage-list-desc"]/text()'),
     ('preview.company','contains(@class, "preview-company")'),
     ('survey.company','contains(@class, "survey-company")'),
-    ('href','a/@href'),
+    ('company.href','a/@href'),
 ]
 
 def candidates(html):
@@ -23,7 +23,7 @@ def candidates(html):
 
         # Collapse the preview and survey nonsense.
         if row['preview.company'] != row['survey.company']:
-            warnings.warn('preview.company != survey.company for %s' % row['href'])
+            warnings.warn('preview.company != survey.company for %s' % row['company.href'])
         row['data.collection'] = {
             True: 'questionnaire',
             False:'undocumented',
@@ -35,7 +35,7 @@ def candidates(html):
 
 def candidate(html):
     row = {
-        'name': html.xpath('//h1/a/text()')[0],
+        'company.name': html.xpath('//h1/a/text()')[0],
         'url': html.xpath('//h1/a/@href')[0],
     }
     div = html.xpath('//div[@class="m-list-company-full"]')[0]
@@ -55,7 +55,7 @@ def candidate(html):
             row[clean_text(section)] = get_section(section)[0].text_content()
 
         x = 'div[@class="m-full datasets"]/ul/li/a'
-        row['datasets'] = [{'href':a.xpath('@href')[0], 'name': a.xpath('text()')[0]} \
+        row['datasets'] = [{'dataset.href':a.xpath('@href')[0], 'dataset.name': a.xpath('text()')[0]} \
             for a in div.xpath(x)]
 
     if 'fte' in row:
@@ -70,14 +70,14 @@ def data():
     path_candidates = os.path.join('www.opendata500.com','candidates','index.html')
     html_candidates = parse(path_candidates).getroot()
     for row in candidates(html_candidates):
-        path_candidate = os.path.join('www.opendata500.com', row['href'].lstrip('/'))
+        path_candidate = os.path.join('www.opendata500.com', row['company.href'].lstrip('/'))
         html_candidate = parse(path_candidate).getroot()
         row.update(candidate(html_candidate))
         yield row
 
 company_fields = [
-    'href',
-    'name',
+    'company.href',
+    'company.name',
     'url',
     'location',
 
@@ -98,7 +98,7 @@ company_fields = [
 
     'datasets',
 ]
-nested_dataset_fields = ['href','name']
+nested_dataset_fields = ['dataset.href','dataset.name']
 dataset_fields = company_fields[:-1] + nested_dataset_fields
 
 def companies_csv():
