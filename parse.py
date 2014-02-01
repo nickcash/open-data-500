@@ -2,6 +2,7 @@
 import os
 import csv
 import io
+import warnings
 
 from lxml.html import parse
 
