@@ -22,12 +22,12 @@ def candidates(html):
 
 def candidate(html):
     row = {
-        'title': html.xpath('//h1/a/text()')[0],
-        'website': html.xpath('//h1/a/@href')[0],
+        'name': html.xpath('//h1/a/text()')[0],
+        'url': html.xpath('//h1/a/@href')[0],
     }
     div = html.xpath('//div[@class="m-list-company-full"]')[0]
     def get_section(section):
-        return div.xpath('//h3[text()="%s"]/following-sibling::p[position()=1]' % section)
+        return div.xpath('//h3[text()="%s"]/following-sibling::p' % section)
     def clean_text(dirty):
         return dirty.lower().rstrip(':').replace(' ','.')
 
@@ -56,17 +56,51 @@ def data():
         row.update(candidate(html_candidate))
         yield row
 
-def main():
+fields = [
+    'href',
+    'name',
+    'url'
+    'city', 'location'
+
+    'year.founded',
+    'fte',
+    'type.of.company',
+    'category',
+    'function',
+    'sector(s)',
+    'source.of.revenue',
+
+    'description',
+    'description.short',
+    'social.impact',
+    'financial.info',
+
+    'survey.company',
+    'preview.company',
+
+    'datasets',
+]
+
+def to_csv():
+    out = open('od500.csv', 'w')
+    writer = csv.DictWriter(out, fields)
+    writer.writeheader()
     for row in data():
         with io.StringIO() as fp:
-            writer = csv.DictWriter(fp, ['href','name'])
-            writer.writeheader()
+            subwriter = csv.DictWriter(fp, ['href','name'])
+            subwriter.writeheader()
             for dataset in row.get('datasets', []):
-                writer.writerow(dataset)
+                subwriter.writerow(dataset)
             row['datasets'] = fp.getvalue()
-        print(row)
-        if row['datasets'] != '':
-            break
+
+        writer.writerow(row)
+    out.close()
+
+def all_columns():
+    k = set()
+    for row in data():
+        k = k.union(row.keys())
+    return k
 
 if __name__ == '__main__':
-    main()
+    to_csv()
