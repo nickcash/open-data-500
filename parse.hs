@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 import           AlphaHeavy.XPathParsers
 import qualified Data.ByteString as B
 
@@ -10,7 +8,5 @@ xpath html theXPath = do
 
 main = do
   html <- B.readFile "www.opendata500.com/Vizzuality"
-  foo <- evaluateHTMLXPath "//strong/text()" "" html
-  putStrLn $ show foo
-  f <- xpath html "//strong/text()"
-  putStrLn $ f !! 1
+  strongs <- xpath html "//strong/text()"
+  putStrLn $ strongs !! 0
