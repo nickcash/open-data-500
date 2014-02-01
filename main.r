@@ -2,6 +2,7 @@ library(RJSONIO)
 library(XML)
 library(knitr)
 library(ggplot2)
+library(scales)
 library(sets)
 
 od500.csv <- function(filename){
@@ -125,6 +126,8 @@ exports <- list(
 
 # companies <- read.csv('companies.csv', stringsAsFactors = FALSE)
 # datasets <- read.csv('datasets.csv', stringsAsFactors = FALSE)
+companies$n.datasets <- nchar(gsub('[^\n]','', companies$datasets)) - 1
+
 datasets$dataset.hostname <- sub('^(?:http://|ftp://|https://)?([^/]*)/?.*$', '\\1', datasets$dataset.url)
 url.is.na <- !grepl('\\.', datasets$dataset.url)
 datasets$dataset.hostname[url.is.na] <- NA
@@ -145,3 +148,11 @@ df <- ddply(companies.with.hostnames, c('datasets','unique.dataset.hostnames'), 
 p.hostnames.datasets <- ggplot(df) +
   aes(x = datasets, y = unique.dataset.hostnames, size = companies) +
   geom_point()
+
+p.fte.datasets <- ggplot(companies) +
+  aes(y = n.datasets, x = fte, label = company.name) +
+  scale_x_continuous('Number of full-time employees', labels = comma) +
+  scale_y_continuous('Number datasets reported', labels = comma) +
+# geom_point(size = 10)
+  ggtitle('Larger companies don\'t report more datasets.') +
+  geom_text()
