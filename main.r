@@ -87,6 +87,8 @@ preview.companies.preview.html <- sapply(preview.html,
 preview.companies.csv <- unique(preview.csv$CompanyName)
 preview.companies.json <- sapply(preview.json, function(x){x$companyName})
 
+d <- cset(preview.companies.candidates.html, preview.companies.csv)
+
 exports <- list(
   datasets.json = datasets.json,
   preview.csv = preview.csv,
