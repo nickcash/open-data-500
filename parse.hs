@@ -1,7 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import AlphaHeavy.XPathParsers
+import           AlphaHeavy.XPathParsers
+import qualified Data.ByteString as B
 
 main = do
-  text <- readFile "www.opendata500.com/Vizzuality"
-  putStrLn text
+  text <- B.readFile "www.opendata500.com/Vizzuality"
+  foo <- evaluateHTMLXPath "//strong/text()" "" text
+  putStrLn $ show foo
