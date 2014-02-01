@@ -75,7 +75,7 @@ def data():
         row.update(candidate(html_candidate))
         yield row
 
-fields = [
+company_fields = [
     'href',
     'name',
     'url',
@@ -98,21 +98,34 @@ fields = [
 
     'datasets',
 ]
+nested_dataset_fields = ['href','name']
+dataset_fields = company_fields[:-1] + nested_dataset_fields
 
-def to_csv():
-    out = open('open-data-500.csv', 'w')
-    writer = csv.DictWriter(out, fields)
+def companies_csv():
+    out = open('companies.csv', 'w')
+    writer = csv.DictWriter(out, company_fields)
     writer.writeheader()
     for row in data():
         # Nested CSV
         with io.StringIO() as fp:
-            subwriter = csv.DictWriter(fp, ['href','name'])
+            subwriter = csv.DictWriter(fp, nested_dataset_fields)
             subwriter.writeheader()
             for dataset in row.get('datasets', []):
                 subwriter.writerow(dataset)
             row['datasets'] = fp.getvalue()
 
         writer.writerow(row)
+    out.close()
+
+def datasets_csv():
+    out = open('datasets.csv', 'w')
+    writer = csv.DictWriter(out, dataset_fields)
+    writer.writeheader()
+    for company in data():
+        for dataset in company.get('datasets', []):
+            dataset.update(company)
+            del(dataset['datasets'])
+            writer.writerow(dataset)
     out.close()
 
 def all_columns():
@@ -122,4 +135,5 @@ def all_columns():
     return k
 
 if __name__ == '__main__':
-    to_csv()
+    companies_csv()
+    datasets_csv()
