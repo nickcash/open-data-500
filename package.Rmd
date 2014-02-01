@@ -1,10 +1,13 @@
 I've recently been trying to understand the [Open Data 500]() data format,
 and my [work thus far](/!/open-data-500-data-dictionary) leaves much to be
-desired. Now that I've figured out how the study was conducted, it's pretty
-simple to represent this in a tabular dataset. The hard part is reconciling
-the conflicting data that are reported on the Open Data 500 site.
+desired.
 
-## The conflicting data
+## More stuff I figured out about the Open Data 500 data
+It was pretty simple to convert the data formats once I figured them out, but
+that step took me a while. The main issue was reconciling the conflicting data
+that are reported on the Open Data 500 site.
+
+### The conflicting data
 The Open Data 500 Team released four data files in its "Downloads" section,
 and it implicitly released two HTML data files elsewhere on its site.
 Some of these seem to present the same data in different formats, but when
@@ -15,7 +18,7 @@ Is one of the files more up-to-date?
 
 I never really figured out what to do about all this.
 
-## All questionnaire responses will be included
+### All questionnaire responses will be included
 Until I did last week's research into the Open Data 500 methodology,
 I had the impression that the Open Data 500 involved some assessment of
 companies beyond what they say in the questionnaire. Now, I think that
@@ -27,7 +30,7 @@ In assembling my Open Data 500 dataset, I thus think it's safe to include
 any company that was included in any of the official Open Data 500 dataset
 releases.
 
-## Only the HTML version gets updated
+### Only the HTML version gets updated
 The CSV and JSON versions of the larger Open Data 500 list include
 51 companies each, and the HTML version of the larger Open Data 500 list
 includes 100 companies. I wasn't really sure what to make of this, but now
@@ -53,12 +56,62 @@ being updated, but it seems likely.
 Anyway, my broader conclusion is that the HTML pages **are** being updated and
 the "download" section **is not** being updated.
 
+## Packaging the data
+I produced a single CSV file to describe the data, and I've released it
+as a [data package]().
 
-## Data package
-Also, I just chatted with
-[Rufus Pollock]()
-and was convinced that I should try writing a data package.
-So I made an Open Data 500 data package!
+### Upstream sources
+The data come from the "full list" section of the Open Data 500 website.
+I took most of the data for any particular company from its page on the website;
+for example, most of the data for Appallicious came from
+[`http://www.opendata500.com/Appallicious/`](http://www.opendata500.com/Appallicious/).
+I also took data from the [full list page](http://www.opendata500.com/candidates).
+If the same field was present on both pages (for example, the company name),
+I used the value on the company's particular page rather than the value on the
+main "full list" page.
 
+### Schema
+The dataset is a single CSV file, where each row is a company and most columns
+are answers to questionnaire questions. (I think! Remember that I'm guessing at
+all of this.) Here are the columns that I think to come from the first page of
+the questionnaire.
 
+Column name             | Question from the questionnaire
+----------------------- | -------------------------------
+`name`                  | Name of your company
+`url`                   | Company URL
+`location`              | "In which city is this company located?", and "State" (two questions)
+`year.founded`          | Founding Year
+`fte`                   | Number of FTE's
+`type.of.company`       | Type of Company
+`category`              | What category best describes your company?
+`function`              | Which best describes the function of your company?
+`sectors(s)`            | What category best describes your company?
+`source.of.revenue`     | Which of the following are significant sources of revenue for your company?
+`description`           | Please give us a short public statement describing your company’s mission and work. You can take this material from your website or other publications if you choose to.
+`description.short`     | As a summary, please provide a one sentence description of your company.
+`social.impact`         | Besides revenue generation, how do you measure the impact your company has for society and the public good? 
+`financial.info`        | Please include any financial or operational information that will help us understand your company. We are interested in specific information like past and projected annual revenues, total outside investment dollars to date, and significant investors or partners. 
 
+The `dataset` field contains a CSV file of the datasets listed on subsequent
+pages of the questionnaire. This file has a row for each dataset, and it has
+columns for the URL and title of the dataset.
+
+The three remaining fields are not from the questionnaire
+
+Column name             | Meaning
+----------------------- | -------------------------------
+'href'                  | Location of the company page within the Open Data 500 website
+'data.collection'       | Which method was used for data collection? ("questionnaire" or "undocumented")
+
+### Questionnaire versus undocumented data collection
+I separate the data collection methods for the Open Data 500 into two methods.
+
+1. Convenience-sampled questionnaire responses
+    ("[comprehensive call]())
+2. Undocumented data collection
+
+Data from both sorts of data collection are included in the dataset that I
+provide, and the `data.collection` field indicates which method was used.
+You'll also notice that much of the data are missing for rows that were
+collected with the undocumented method.

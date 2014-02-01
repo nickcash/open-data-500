@@ -7,7 +7,7 @@ from lxml.html import parse
 
 candidates_fields = [
     ('name','a/h3/strong/text()'),
-    ('city','p[@class="m-homepage-list-location"]/text()'),
+    ('location','p[@class="m-homepage-list-location"]/text()'),
     ('company.function','em/text()'),
     ('short.description','p[@class="m-homepage-list-desc"]/text()'),
     ('preview.company','contains(@class, "preview-company")'),
@@ -60,7 +60,7 @@ fields = [
     'href',
     'name',
     'url',
-    'city', 'location',
+    'location',
 
     'year.founded',
     'fte',
