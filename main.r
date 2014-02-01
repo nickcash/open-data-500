@@ -114,4 +114,4 @@ p <- (function(){
     ggtitle('Are the preview companies simply the companies who have responded to the questionnaire?')
 })()
 
-knit('readme.Rmd')
+# knit('dictionary.Rmd')
