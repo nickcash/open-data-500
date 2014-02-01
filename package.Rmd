@@ -1,0 +1,64 @@
+I've recently been trying to understand the [Open Data 500]() data format,
+and my [work thus far](/!/open-data-500-data-dictionary) leaves much to be
+desired. Now that I've figured out how the study was conducted, it's pretty
+simple to represent this in a tabular dataset. The hard part is reconciling
+the conflicting data that are reported on the Open Data 500 site.
+
+## The conflicting data
+The Open Data 500 Team released four data files in its "Downloads" section,
+and it implicitly released two HTML data files elsewhere on its site.
+Some of these seem to present the same data in different formats, but when
+I looked closely, I found that they actually contained different data, and
+I wasn't really sure which data to use. Do I combine the different files?
+If a company is in one file but not another, is it part of the study?
+Is one of the files more up-to-date?
+
+I never really figured out what to do about all this.
+
+## All questionnaire responses will be included
+Until I did last week's research into the Open Data 500 methodology,
+I had the impression that the Open Data 500 involved some assessment of
+companies beyond what they say in the questionnaire. Now, I think that
+the study is just an ordinary questionnaire survey and that they want as
+many responses as they can get. If this is the case, the Open Data 500 Team
+would probably want to report any company that completed the questionnaire.
+
+In assembling my Open Data 500 dataset, I thus think it's safe to include
+any company that was included in any of the official Open Data 500 dataset
+releases.
+
+## Only the HTML version gets updated
+The CSV and JSON versions of the larger Open Data 500 list include
+51 companies each, and the HTML version of the larger Open Data 500 list
+includes 100 companies. I wasn't really sure what to make of this, but now
+I have a guess.
+
+I scraped the data from the various HTML pages on the site, and I noticed
+that there is indeed quite complete data for all of these 100 companies.
+I thus think that these companies responded to the questionnaire.
+
+Separately, I know for sure that the "download"
+section isn't being updated because I downloaded those files when they
+were first released in December, and they haven't changed. I haven't
+been downloading the HTML files regularly, 
+
+I found [this git repository](https://github.com/GovLab/OpenData500),
+which seems to be the code for the site. In that repository as well,
+the "download" files have never been updated. But recent development on
+the site has been happening, so I find it conceivable that the data behind
+the HTML files is being updated. The data are being stored in Mongo rather
+than as files in the repository, so I can't say for sure that the data are
+being updated, but it seems likely.
+
+Anyway, my broader conclusion is that the HTML pages **are** being updated and
+the "download" section **is not** being updated.
+
+
+## Data package
+Also, I just chatted with
+[Rufus Pollock]()
+and was convinced that I should try writing a data package.
+So I made an Open Data 500 data package!
+
+
+
