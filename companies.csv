@@ -1,4 +1,4 @@
-company.href,company.name,url,location,year.founded,fte,type.of.company,category,company.function,sector(s),source.of.revenue,description,short.description,social.impact,financial.info,data.collection,datasets
+company.href,company.name,company.url,location,year.founded,fte,type.of.company,category,company.function,sector(s),source.of.revenue,description,short.description,social.impact,financial.info,data.collection,datasets
 /1099is,1099.is,http://1099.is,NY,,,,Finance & Investment, Finance & Investment,,,,"1099.is helps people navigate the confusing tax code that applies to the self-employed, providing advice from experts and people who have been through this before in transparent, clear, simple language.",,,undocumented,"dataset.url,dataset.name
 "
 /1800Recyclingcom,1800Recycling.com,http://1800recycling.com,CA,,,,Environment & Weather, Environment & Weather,,,,This company is a search engine for recycling locations.,,,undocumented,"dataset.url,dataset.name

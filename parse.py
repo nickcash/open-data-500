@@ -36,7 +36,7 @@ def candidates(html):
 def candidate(html):
     row = {
         'company.name': html.xpath('//h1/a/text()')[0],
-        'url': html.xpath('//h1/a/@href')[0],
+        'company.url': html.xpath('//h1/a/@href')[0],
     }
     div = html.xpath('//div[@class="m-list-company-full"]')[0]
     def get_section(section):
@@ -78,7 +78,7 @@ def data():
 company_fields = [
     'company.href',
     'company.name',
-    'url',
+    'company.url',
     'location',
 
     'year.founded',

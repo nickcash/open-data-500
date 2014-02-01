@@ -84,7 +84,7 @@ the questionnaire.
 Column name             | Question from the questionnaire
 ----------------------- | -------------------------------
 `company.name`          | Name of your company
-`url`                   | Company URL
+`company.url            | Company URL
 `location`              | "In which city is this company located?", and "State" (two questions)
 `year.founded`          | Founding Year
 `fte`                   | Number of FTE's

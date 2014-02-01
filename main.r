@@ -123,5 +123,7 @@ exports <- list(
 # companies <- get_resource(open.data.500, 'companies', overlook.types = TRUE)
 # datasets <- get_resource(open.data.500, 'datasets', overlook.types = TRUE)
 
-companies <- read.csv('companies.csv')
-datasets <- read.csv('datasets.csv')
+companies <- read.csv('companies.csv', stringsAsFactors = FALSE)
+datasets <- read.csv('datasets.csv', stringsAsFactors = FALSE)
+datasets$dataset.hostname <- sub('^(?:http|ftp|https)://([^/]*)/.*$', '\\1', datasets$dataset.url)
+

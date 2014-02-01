@@ -157,7 +157,7 @@
           "type": "string",
           "description": "Response to the question "
         },{
-          "name": "url",
+          "name": "company.url",
           "title": "Website",
           "type": "string",
           "description": "Response to the question \"Company URL\""
