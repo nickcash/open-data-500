@@ -135,8 +135,10 @@ You'll also notice that much of the data are missing for rows that were
 collected with the undocumented method.
 
 ## Using the data
-You can download the file at
-[https://raw.github.com/tlevine/open-data-500/master/open-data-500.csv](https://raw.github.com/tlevine/open-data-500/master/open-data-500.csv).
+You can download the files here.
+
+* [`companies.csv`](https://raw.github.com/tlevine/open-data-500/master/companies.csv).
+* [`datasets.csv`](https://raw.github.com/tlevine/open-data-500/master/datasets.csv).
 
 I've also packaged the it as a
 [Data Package](http://data.okfn.org/standards/data-package),
@@ -144,5 +146,6 @@ so you can use any of
 [these fancy tools](http://data.okfn.org/tools)
 to load it.
 
-Do tell me if you have any trouble with the files. I'd love to hear about
+Do tell me if you have any trouble with the files.
+And I'd love to hear about
 anything that you find with the data!
