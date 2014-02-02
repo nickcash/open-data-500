@@ -133,6 +133,8 @@ url.is.na <- !grepl('\\.', datasets$dataset.url)
 datasets$dataset.hostname[url.is.na] <- NA
 datasets$dataset.url[url.is.na] <- NA
 
+datasets$company.hostname <- sub('^(?:http://|ftp://|https://)?([^/]*)/?.*$', '\\1', datasets$company.url)
+
 library(plyr)
 companies.with.hostnames <- ddply(datasets, 'company.href', function(datasets){
   companies <- datasets[1,]
@@ -164,3 +166,8 @@ p.priorities <- ggplot(companies) +
   geom_point() + coord_fixed() + geom_abline(slope = 1) +
   ggtitle('How much they write about social and financial things')
 
+library(sqldf)
+non.gov <- sqldf('SELECT company_name, count(*) FROM datasets WHERE dataset_url NOT LIKE \'%.gov%\' group by company_href order by 2')
+own.data <- subset(datasets, company.hostname == dataset.hostname)[c('company.name','dataset.name')]
+
+# subset(companies, data.collection == 'questionnaire')$location
