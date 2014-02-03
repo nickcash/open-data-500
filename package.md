@@ -1,7 +1,17 @@
-I've recently been trying to understand the
+---
+title: Open Data 500 Data Package
+tags: ['open-data']
+kind: article
+tweet_text: I made a data package of the Open Data 500 data! http://thomaslevine.com/!/open-data-500-data-package
+created_at: 2014-02-03
+---
+I recently took a stab at documenting the
 [Open Data 500](http://www.opendata500.com) data format,
-and my [work thus far](/!/open-data-500-data-dictionary)
-leaves much to be desired.
+but my [work thus far](/!/open-data-500-data-dictionary)
+leaves much to be desired. Over the weekend, I looked at
+it a bit more, and I think I have a pretty good idea about
+it now, and I've packaged the data in a way that should be
+a bit easier to work with.
 
 ## More stuff I figured out about the Open Data 500 data
 It was pretty simple to convert the data formats once I figured them out, but
@@ -119,20 +129,24 @@ file except for the `datasets` column, and it adds two more columns:
 name of the dataset. These are the two columns inside the nested CSV
 files in the companies file.
 
-Because each row is about a dataset, this file contains now data about
+Because each row is about a dataset, this file contains no data about
 companies with zero datasets.
 
 ### Questionnaire versus undocumented data collection
 I separate the data collection methods for the Open Data 500 into two methods.
 
 1. Convenience-sampled questionnaire responses
-    ("[comprehensive call](#comprehensive-call-sampling-strategy))
+    ("[comprehensive call](#comprehensive-call-sampling-strategy)")
 2. Undocumented data collection
 
-Data from both sorts of data collection are included in the dataset that I
-provide, and the `data.collection` field indicates which method was used.
+Data from both sorts of data collection are included in the companies dataset,
+and the `data.collection` field indicates which method was used.
 You'll also notice that much of the data are missing for rows that were
 collected with the undocumented method.
+
+The datasets file, on the other hand, contains no data about companies that
+were collected through the undocumented method; in the undocumented data
+collection method, no data were produced about datasets used by the companies.
 
 ## Using the data
 You can download the files here.
